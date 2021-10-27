@@ -11,14 +11,21 @@
         android:theme="@style/Theme.NavShO">
         <activity android:name=".ChiefController"></activity>
         <activity android:name=".FormController">
+        </activity>
+<<<<<<< HEAD
+        <activity android:name=".EngineerController"></activity>
+        <activity android:name=".MainActivity"></activity>
+=======
+        <activity android:name=".EngineerController">
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EngineerController"></activity>
-        <activity android:name=".MainActivity"></activity>
+>>>>>>> c132b7da792ea0d0e087046e4f22b01b087e27a2
     </application>
 
 </manifest>

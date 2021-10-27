@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMonthlyForm">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/shipOpRecycle"
             android:layout_width="312dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +38,7 @@
         android:layout_marginEnd="51dp"
         android:layout_marginRight="51dp"
         android:layout_marginBottom="16dp"
+        android:onClick="logoutButton"
         android:text="ออกจากระบบ"
         android:textColor="#050533"
         app:backgroundTint="#D1BF21"
