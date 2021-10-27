@@ -1,0 +1,1209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050533">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="734dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewFormTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23"
+                android:layout_marginLeft="23"
+                android:text="แบบฟอร์มรายงานประจำเดือน"
+                android:textColor="#050533"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewVessel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80"
+                    android:layout_marginLeft="80"
+                    android:text="ของเรือตรวจอ่าว:"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewVesselId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10"
+                    android:layout_marginLeft="10"
+                    android:layout_weight="1"
+                    android:text="(รหัสเรือ)"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewFormEditor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40"
+                    android:layout_marginLeft="40"
+                    android:text="ผู้ทำแบบฟอร์ม:"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewEditorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10"
+                    android:layout_marginLeft="10"
+                    android:text="(ชื่อของไอคนดำ)"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40"
+                    android:layout_marginLeft="40"
+                    android:text="เสนอ ต้นกล:"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewChiefName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10"
+                    android:layout_marginLeft="10"
+                    android:text="(ชื่อของไอคนเหลือง)"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40"
+                    android:layout_marginLeft="40"
+                    android:text="เสนอ ผบ.กตอ:"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewCommanderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10"
+                    android:layout_marginLeft="10"
+                    android:text="(ชื่อของไอคนขาว)"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100"
+                android:layout_marginLeft="100"
+                android:layout_marginEnd="100"
+                android:layout_marginRight="100"
+                android:layout_weight="1"
+                android:text="ชั่วโมงการใช้งาน"
+                android:textColor="#050533"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="125"
+                android:layout_marginLeft="125"
+                android:layout_marginEnd="125"
+                android:layout_marginRight="125"
+                android:layout_weight="1"
+                android:text="เครื่องจักรใหญ่"
+                android:textColor="#050533"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60"
+                    android:layout_marginLeft="60"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60"
+                    android:layout_marginLeft="60"
+                    android:layout_weight="1"
+                    android:text="2"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60"
+                    android:layout_marginLeft="60"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextBigMachine1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextBigMachine2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextBigMachine3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView46"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140"
+                android:layout_marginLeft="140"
+                android:layout_marginEnd="140"
+                android:layout_marginRight="140"
+                android:layout_weight="1"
+                android:text="เครื่องไฟฟ้า"
+                android:textColor="#050533"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45"
+                    android:layout_marginLeft="45"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45"
+                    android:layout_marginLeft="45"
+                    android:layout_weight="1"
+                    android:text="2"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45"
+                    android:layout_marginLeft="45"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45"
+                    android:layout_marginLeft="45"
+                    android:layout_weight="1"
+                    android:text="4"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextEletricMachine1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="    (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextEletricMachine2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="    (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextEletricMachine3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="    (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextEletricMachine4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="    (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="125"
+                android:layout_marginLeft="125"
+                android:layout_weight="1"
+                android:text="เครื่องจักรต่างๆ"
+                android:textColor="#050533"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView57"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องปรับอากาศ"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfAirConditioner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner2"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องอัดลม"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfAirCompressor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner3"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องทำความเย็น"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfFreezer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner4"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องเรือยนต์"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfShipEngine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner5"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องสูบน้ำเคลื่อนที่"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfPump"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner6"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องหางเสือ"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfTigerTail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner7"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องกลั่นน้ำ"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfWaterPurifyer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner8"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เครื่องแยกน้ำมันดีเซล"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfSplitOilEngine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAirConditioner9"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เกียร์"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextUseOfGear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="         (ชั่วโมง)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView60"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55"
+                android:layout_marginLeft="55"
+                android:layout_marginEnd="55"
+                android:layout_marginRight="55"
+                android:layout_weight="1"
+                android:text="รายการรับน้ำมันและอื่นๆ"
+                android:textColor="#050533"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/textView63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView64"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView66"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="น้ำมัน ดีเซล (กล.)"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGetOfWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (กิโลลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView88"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="น้ำมัน เบนซิน 95 (กล.)"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGetOfBensin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (กิโลลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView89"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เชลล์ การ์ดิเนีย เกรด 40"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGetOfGladinir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="           (ลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView90"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เชลล์ เทลลัส เกรด 68"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGetOfTeslus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="           (ลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView91"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="น้ำจืด"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGetOfBensin4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="            (ตัน)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView87"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView82"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView83"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView84"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100"
+                android:layout_marginLeft="100"
+                android:layout_marginEnd="100"
+                android:layout_marginRight="100"
+                android:layout_weight="1"
+                android:text="รายการจ่ายออก"
+                android:textColor="#050533"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView81"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView92"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="น้ำมัน ดีเซล (กล.)"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGiveDesel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (กิโลลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView93"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="น้ำมัน เบนซิน 95 (กล.)"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGiveOfBensin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="       (กิโลลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView94"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เชลล์ การ์ดิเนีย เกรด 40"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGiveOfGladinir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="           (ลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView95"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="เชลล์ เทลลัส เกรด 68"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGiveOfTeslus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="           (ลิตร)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView96"
+                    android:layout_width="307dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25"
+                    android:layout_marginLeft="25"
+                    android:layout_weight="1"
+                    android:text="น้ำจืด"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextGiveOfWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="            (ตัน)"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView99"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView98"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView101"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100"
+                android:layout_marginLeft="100"
+                android:layout_marginEnd="100"
+                android:layout_marginRight="100"
+                android:layout_weight="1"
+                android:text="ข้อเสนอเพิ่มเติม"
+                android:textColor="#050533"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/textView97"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView102"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView103"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:ems="10"
+                android:hint="                           เขียนข้อเสนอเพิ่มเติม"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonConfirm"
+                    android:layout_width="200"
+                    android:layout_height="wrap_content"
+                    android:text="ยืนยันและส่งแบบฟอร์ม"
+                    android:textColor="#050533"
+                    app:backgroundTint="#4CAF50" />
+
+                <Button
+                    android:id="@+id/buttonCancle"
+                    android:layout_width="200"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ยกเลิกและล้างแบบฟอร์ม"
+                    android:textColor="#050533"
+                    app:backgroundTint="#F44336" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
