@@ -1,4 +1,4 @@
-package com.example.navsho;
+package com.example.navsho.alluseclass;
 
 import java.io.Serializable;
 

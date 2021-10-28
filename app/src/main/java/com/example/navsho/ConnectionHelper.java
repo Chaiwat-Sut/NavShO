@@ -13,11 +13,12 @@ public class ConnectionHelper {
     String username,password,ip,port,database;
 
     public Connection connectionclass(){
-        ip = "192.168.1.36";
+        ip = "192.168.1.43";
         username = "test";
         password = "test";
         port = "1433";
         database = "navyDataBase";
+
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -26,9 +27,8 @@ public class ConnectionHelper {
 
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            connectionURL = "jdbc:jtds:sqlserver://"+ ip + ":"+ port+";"+ "databasename="+
-                    database+";user="+username+";password="+password+";";
-            connection = DriverManager.getConnection(connectionURL);
+            connectionURL = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
+            connection = DriverManager.getConnection(connectionURL,username,password);
         }
         catch (Exception e){
             Log.i("Error: ",e.getMessage());
