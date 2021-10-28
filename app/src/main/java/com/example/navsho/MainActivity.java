@@ -32,7 +32,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
+<<<<<<< HEAD
+        TLSSocketFactory tlsSocketFactory = new TLSSocketFactory();
+=======
+>>>>>>> db05ad4e219d34be7e7139de80cb98bd9dcafc26
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
         usernameEditText = findViewById(R.id.usernameEditText);
