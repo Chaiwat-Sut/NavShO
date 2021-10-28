@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.navsho">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NavShO">
-        <activity android:name=".EngineerController"></activity>
-        <activity android:name=".EngineerFormController"></activity>
+        <activity android:name=".CommanderFormController"></activity>
+        <activity android:name=".CommanderController" />
+        <activity android:name=".EngineerController" />
+        <activity android:name=".EngineerFormController" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChiefController"></activity>
-        <activity android:name=".ChiefFormController">
-        </activity>
+        <activity android:name=".ChiefController" />
+        <activity android:name=".ChiefFormController" />
     </application>
 
 </manifest>

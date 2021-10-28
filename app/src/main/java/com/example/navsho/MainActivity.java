@@ -41,13 +41,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
-        try {
-            TLSSocketFactory tlsSocketFactory = new TLSSocketFactory();
-        } catch (KeyManagementException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+        TLSSocketFactory tlsSocketFactory = new TLSSocketFactory();
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
         usernameEditText = findViewById(R.id.usernameEditText);

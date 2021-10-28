@@ -18,11 +18,11 @@ public class ConnectionHelper {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         Connection connection = null;
-        String connectionURL = null;
+        String connectionURL ;
 
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            connectionURL = "jdbc:jtds:sqlserver://saprojectserver.database.windows.net:1433;database=navyDatabase;user=admin123@saprojectserver;password=admin!23;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
+            connectionURL = "jdbc:jtds:sqlserver://saprojectserver.database.windows.net:1433;database=navyDatabase;user=admin123@saprojectserver;password=admin!23;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
             connection = DriverManager.getConnection(connectionURL);
         }
         catch (Exception e){

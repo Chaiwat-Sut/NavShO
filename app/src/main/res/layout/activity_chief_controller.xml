@@ -8,9 +8,9 @@
     tools:context=".ChiefController">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/shipOrder"
+        android:layout_width="300dp"
+        android:layout_height="600dp"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="57dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView2"
+            android:id="@+id/recyclerViewShip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="34dp"
@@ -42,7 +42,7 @@
         app:backgroundTint="#D1BF21"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/shipOrder" />
 
     <TextView
         android:id="@+id/textViewMonthlyForm2"
@@ -54,7 +54,7 @@
         android:text="แบบฟอร์มรายเดือน"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
+        app:layout_constraintStart_toStartOf="@+id/shipOrder"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
