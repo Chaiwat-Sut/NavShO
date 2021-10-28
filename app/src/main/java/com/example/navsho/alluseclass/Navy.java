@@ -1,8 +1,11 @@
 package com.example.navsho.alluseclass;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
-public class Navy implements Serializable {
+public class Navy implements Parcelable {
     private String navyID;
     private String name;
     private String password;
@@ -16,6 +19,26 @@ public class Navy implements Serializable {
         this.rank = rank;
         this.role = role;
     }
+
+    protected Navy(Parcel in) {
+        navyID = in.readString();
+        name = in.readString();
+        password = in.readString();
+        rank = in.readString();
+        role = in.readString();
+    }
+
+    public static final Creator<Navy> CREATOR = new Creator<Navy>() {
+        @Override
+        public Navy createFromParcel(Parcel in) {
+            return new Navy(in);
+        }
+
+        @Override
+        public Navy[] newArray(int size) {
+            return new Navy[size];
+        }
+    };
 
     public String getNavyID() {
         return navyID;
@@ -55,5 +78,19 @@ public class Navy implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(navyID);
+        dest.writeString(name);
+        dest.writeString(password);
+        dest.writeString(rank);
+        dest.writeString(role);
     }
 }

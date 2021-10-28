@@ -65,20 +65,10 @@ public class EngineerFormController extends AppCompatActivity {
         commanderName = findViewById(R.id.textViewCommanderName);
     }
     public void onClickSummit(View view){
-        bigMachine1 = findViewById(R.id.editTextBigMachine1);
+        bigMachine1 = findViewById(R.id.editTextBigMachine);
         amountBigMachine1 = Integer.parseInt(bigMachine1.getText().toString());
-        bigMachine2 = findViewById(R.id.editTextBigMachine2);
-        amountBigMachine2 = Integer.parseInt(bigMachine2.getText().toString());
-        bigMachine3 = findViewById(R.id.editTextBigMachine3);
-        amountBigMachine3 = Integer.parseInt(bigMachine3.getText().toString());
-        electricMachine1 = findViewById(R.id.editTextEletricMachine1);
+        electricMachine1 = findViewById(R.id.editTextEletricMachine);
         amountElecMachine1 = Integer.parseInt(electricMachine1.getText().toString());
-        electricMachine2 = findViewById(R.id.editTextEletricMachine2);
-        amountElecMachine2 = Integer.parseInt(electricMachine2.getText().toString());
-        electricMachine3 = findViewById(R.id.editTextEletricMachine3);
-        amountElecMachine3 = Integer.parseInt(electricMachine3.getText().toString());
-        electricMachine4 = findViewById(R.id.editTextEletricMachine4);
-        amountElecMachine4 = Integer.parseInt(electricMachine4.getText().toString());
         useOfAirCom = findViewById(R.id.editTextUseOfAirCompressor);
         amountUseAirCom = Integer.parseInt(useOfAirCom.getText().toString());
         useOfAirCon = findViewById(R.id.editTextUseOfAirConditioner);

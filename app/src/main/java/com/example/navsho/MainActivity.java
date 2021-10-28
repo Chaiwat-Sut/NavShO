@@ -26,18 +26,12 @@ public class MainActivity extends AppCompatActivity{
     private String connectionResult = "";
     private EditText usernameEditText;
     private EditText passwordEditText;
-    private Navy navy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
-
-<<<<<<< HEAD
-        TLSSocketFactory tlsSocketFactory = new TLSSocketFactory();
-=======
->>>>>>> db05ad4e219d34be7e7139de80cb98bd9dcafc26
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
         usernameEditText = findViewById(R.id.usernameEditText);
@@ -52,6 +46,7 @@ public class MainActivity extends AppCompatActivity{
         String realPassword = "";
         String rank = "";
         String role = "";
+        Navy navy;
         try{
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connect = connectionHelper.connectionclass();
@@ -66,7 +61,6 @@ public class MainActivity extends AppCompatActivity{
                     realPassword = resultSet.getString(3);
                     rank = resultSet.getString(4);
                     role = resultSet.getString(5);
-                    Log.i("xxx","" + realPassword);
                 }
                 if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ทหารช่าง")){
                     navy = new Navy(navyID,name,realPassword,rank,role);

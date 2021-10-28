@@ -23,10 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".ChiefController" />
-        <activity android:name=".ChiefFormController" />
-=======
         <activity android:name=".ChiefController"></activity>
         <activity android:name=".ChiefFormController">
         </activity>

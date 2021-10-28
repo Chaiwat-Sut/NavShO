@@ -19,14 +19,16 @@ import java.util.ArrayList;
 public class EngineerController extends AppCompatActivity implements RecycleAdapter.onShipListener{
     private ArrayList<ShipOperation> shipOp;
     private RecyclerView shipOpRecycle;
-    private Navy navy = (Navy) getIntent().getSerializableExtra("NAVY");
+    private Intent intent = getIntent();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_engineer_controller);
         shipOpRecycle = findViewById(R.id.shipOpRecycle);
         shipOp = new ArrayList<>();
-
+        Navy navy = getIntent().getParcelableExtra("NAVY");
+        Log.i("xxx",navy.getName());
         setShipOp();
         setAdapeter();
     }
