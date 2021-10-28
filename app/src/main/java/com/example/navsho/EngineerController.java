@@ -1,16 +1,15 @@
 package com.example.navsho;
 
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-
+import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.recycleviewadapter.RecycleAdapter;
 import com.example.navsho.report.ShipOperation;
 
@@ -19,6 +18,7 @@ import java.util.ArrayList;
 public class EngineerController extends AppCompatActivity {
     private ArrayList<ShipOperation> shipOp;
     private RecyclerView shipOpRecycle;
+    private Navy navy = (Navy) getIntent().getSerializableExtra("NAVY");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

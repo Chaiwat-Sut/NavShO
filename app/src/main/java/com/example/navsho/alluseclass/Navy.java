@@ -33,7 +33,6 @@ public class Navy implements Serializable {
         this.name = name;
     }
 
-
     public String getPassword() {
         return password;
     }
