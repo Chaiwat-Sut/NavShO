@@ -1,14 +1,14 @@
 package com.example.navsho;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class FormController extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ChiefFormController extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_controller);
+        setContentView(R.layout.activity_chief_form_controller);
     }
 }

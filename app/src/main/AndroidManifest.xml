@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NavShO">
         <activity android:name=".ChiefController"></activity>
-        <activity android:name=".FormController">
+        <activity android:name=".EngineerFormController">
         </activity>
 <<<<<<< HEAD
         <activity android:name=".EngineerController"></activity>
