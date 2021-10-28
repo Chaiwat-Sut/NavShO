@@ -13,11 +13,12 @@ public class ConnectionHelper {
     String username,password,ip,port,database;
 
     public Connection connectionclass(){
-        ip = "192.168.1.11";
+        ip = "192.168.1.43";
         username = "test";
         password = "test";
         port = "1433";
         database = "navyDataBase";
+
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

@@ -12,15 +12,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.Serializable;
+import com.example.navsho.alluseclass.Navy;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.xml.transform.Result;
-
 public class MainActivity extends AppCompatActivity{
+
+
     private Connection connect;
     private String connectionResult = "";
     private EditText usernameEditText;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
 
