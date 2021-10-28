@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class EngineerController extends AppCompatActivity implements RecycleAdapter.onShipListener{
     private ArrayList<ShipOperation> shipOp;
     private RecyclerView shipOpRecycle;
-//    private Navy navy = (Navy) getIntent().getSerializableExtra("NAVY");
+    private Navy navy = (Navy) getIntent().getSerializableExtra("NAVY");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
