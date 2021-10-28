@@ -1,6 +1,8 @@
 package com.example.navsho.report;
 
-public class ShipOperation {
+import java.io.Serializable;
+
+public class ShipOperation implements Serializable {
     private String date;
     private String status;
 

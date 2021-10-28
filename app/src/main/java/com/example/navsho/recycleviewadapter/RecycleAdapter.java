@@ -15,19 +15,29 @@ import java.util.ArrayList;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
     private ArrayList<ShipOperation> shipOp;
+    private onShipListener mOnShipListner;
 
-    public RecycleAdapter(ArrayList<ShipOperation> shipOp){
+    public RecycleAdapter(ArrayList<ShipOperation> shipOp, onShipListener onShipListener){
         this.shipOp = shipOp;
+        this.mOnShipListner = onShipListener;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView dateText;
         private TextView statusText;
+        onShipListener onShipListener;
 
-        public MyViewHolder(View view){
+        public MyViewHolder(View view , onShipListener onShipListener){
             super(view);
             dateText = view.findViewById(R.id.dateText);
             statusText = view.findViewById(R.id.statusText);
+            this.onShipListener = onShipListener;
+
+            view.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            onShipListener.onClickListener(getAdapterPosition());
         }
     }
 
@@ -35,7 +45,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     @Override
     public RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_view_layout,parent,false);
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView,mOnShipListner);
     }
 
     @Override
@@ -49,5 +59,9 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     @Override
     public int getItemCount() {
         return shipOp.size();
+    }
+
+    public interface onShipListener{
+        void onClickListener(int position);
     }
 }
