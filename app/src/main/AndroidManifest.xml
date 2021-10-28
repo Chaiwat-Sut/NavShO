@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.navsho">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -22,8 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".ChiefController" />
         <activity android:name=".ChiefFormController" />
+=======
+        <activity android:name=".ChiefController"></activity>
+        <activity android:name=".ChiefFormController">
+        </activity>
+
+>>>>>>> db05ad4e219d34be7e7139de80cb98bd9dcafc26
     </application>
 
 </manifest>
