@@ -35,19 +35,11 @@ public class EngineerController extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         shipOpRecycle.setLayoutManager(layoutManager);
         shipOpRecycle.setItemAnimator(new DefaultItemAnimator());
-        shipOpRecycle.setAdapter(adapter);
+        shipOpRecycle.setAdapter(adapter); 
     }
 
     public void setShipOp(){
         shipOp.add(new ShipOperation("1/01/2021","กำลังดำเนิน"));
-        shipOp.add(new ShipOperation("1/02/2021","อยู่ที่ต้นกล"));
-        shipOp.add(new ShipOperation("1/03/2021","อยู่ที่ผบ.ก   ตอ."));
-        shipOp.add(new ShipOperation("1/04/2021","อยู่ที่ผบ.กตอ."));
-        shipOp.add(new ShipOperation("1/05/2021","อยู่ที่ผบ.กตอ."));
-        shipOp.add(new ShipOperation("1/06/2021","อยู่ที่ผบ.กตอ."));
-        shipOp.add(new ShipOperation("1/07/2021","อยู่ที่ผบ.กตอ."));
-        shipOp.add(new ShipOperation("1/08/2021","อยู่ที่ผบ.กตอ."));
-        shipOp.add(new ShipOperation("1/09/2021","อยู่ที่ผบ.กตอ."));
     }
 
     public void logoutButton(View view){

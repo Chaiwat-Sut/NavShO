@@ -27,17 +27,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
         android:layout_marginLeft="135dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
-        android:text="กรุณาเข้าสู่ระบบไอหัวเกรียน"
+        android:text="กรุณาเข้าสู่ระบบ"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewNavy" />
 
     <EditText
-        android:id="@+id/editTextPersonalId"
+        android:id="@+id/usernameEditText"
         android:layout_width="250dp"
         android:layout_height="25dp"
         android:layout_marginStart="90dp"
@@ -47,7 +48,7 @@
         android:layout_marginRight="71dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="รหัสบนบัตรมึงอะ"
+        android:hint="รหัสบนบัตร"
         android:inputType="textPersonName"
         android:textColor="#050533"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
     <EditText
-        android:id="@+id/editTextShipId"
+        android:id="@+id/passwordEditText"
         android:layout_width="250dp"
         android:layout_height="25dp"
         android:layout_marginStart="90dp"
@@ -65,11 +66,11 @@
         android:layout_marginRight="71dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="รหัสเรือมึงอะ"
+        android:hint="รหัสเรือ"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonalId" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -86,7 +87,7 @@
         app:backgroundTint="#D1BF21"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextShipId" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     <TextView
         android:id="@+id/textViewVersion"
