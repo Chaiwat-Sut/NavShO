@@ -885,7 +885,9 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="       (กิโลลิตร)"
-                    android:inputType="numberDecimal" />
+                    android:textAlignment="center"
+                    android:inputType="numberDecimal"
+                    android:gravity="center_horizontal" />
             </LinearLayout>
 
             <LinearLayout

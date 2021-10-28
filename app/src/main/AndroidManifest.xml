@@ -11,29 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NavShO">
-        <activity android:name=".ChiefController"></activity>
-<<<<<<< HEAD
-        <activity android:name=".EngineerFormController">
-        </activity>
-<<<<<<< HEAD
         <activity android:name=".EngineerController"></activity>
-        <activity android:name=".MainActivity"></activity>
-=======
-        <activity android:name=".EngineerController">
-        </activity>
+        <activity android:name=".EngineerFormController"></activity>
         <activity android:name=".MainActivity">
-=======
-        <activity android:name=".FormController">
->>>>>>> 3fc5b6ee1515d42842351498833ec89097213006
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EngineerController">
-        </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ChiefController"></activity>
+        <activity android:name=".ChiefFormController">
         </activity>
     </application>
 
