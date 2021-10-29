@@ -52,30 +52,30 @@ public class MainActivity extends AppCompatActivity{
             connect = connectionHelper.connectionclass();
 
             if(connect != null){
-                String query = "Select * from Navy_TABLE Where NavyID=" + "'" + inputNavyID + "'";
+                String query = "Select * from Navy Where NavyID=" + "'" + inputNavyID + "'";
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
                     navyID = resultSet.getString(1);
-                    name = resultSet.getString(2);
-                    realPassword = resultSet.getString(3);
+                    realPassword = resultSet.getString(2);
+                    name = resultSet.getString(3);
                     rank = resultSet.getString(4);
                     role = resultSet.getString(5);
                 }
                 if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ทหารช่าง")){
-                    navy = new Navy(navyID,name,realPassword,rank,role);
+                    navy = new Navy(navyID,realPassword,name,rank,role);
                     Intent intent = new Intent(MainActivity.this,EngineerController.class);
                     intent.putExtra("NAVY",navy);
                     startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ต้นกล")){
-                    navy = new Navy(navyID,name,realPassword,rank,role);
+                    navy = new Navy(navyID,realPassword,name,rank,role);
                     Intent intent = new Intent(MainActivity.this,ChiefController.class);
                     intent.putExtra("NAVY",navy);
                     startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ผบ.กตอ.")){
-                    navy = new Navy(navyID,name,realPassword,rank,role);
+                    navy = new Navy(navyID,realPassword,name,rank,role);
                     Intent intent = new Intent(MainActivity.this,ChiefController.class);
                     intent.putExtra("NAVY",navy);
                     startActivity(intent);

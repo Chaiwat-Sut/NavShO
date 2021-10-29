@@ -9,24 +9,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.report.ShipOperation;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class EngineerFormController extends AppCompatActivity {
+    private Connection connect;
+    private Navy navy;
     ShipOperation ship;
     TextView dateT;
     TextView vesID;
     TextView editorName;
     TextView chiefName;
     TextView commanderName;
-    EditText bigMachine1;
-    EditText bigMachine2;
-    EditText bigMachine3;
-    EditText electricMachine1;
-    EditText electricMachine2;
-    EditText electricMachine3;
-    EditText electricMachine4;
+    EditText bigMachine;
+    EditText electricMachine;
     EditText useOfAirCon;
     EditText useOfAirCom;
     EditText useOfFreez;
@@ -54,6 +56,7 @@ public class EngineerFormController extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Serializable extras = getIntent().getSerializableExtra("test");
+        navy = (Navy) getIntent().getSerializableExtra("NAVY");
         ship = (ShipOperation) extras;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_engineer_form_controller);
@@ -63,12 +66,25 @@ public class EngineerFormController extends AppCompatActivity {
         editorName = findViewById(R.id.textViewEditorName);
         chiefName = findViewById(R.id.textViewChiefName);
         commanderName = findViewById(R.id.textViewCommanderName);
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connectionclass();
+            if (connect != null) {
+                String query = "SELECT * from Vessel \n" +
+                        "INNER JOIN Navy ON Vessel.ves_id=Navy.ves_id\n" +
+                        "Where Navy.ves_id= " + "'" + navy.getVesID() + "'";
+                Statement statement = connect.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
-    public void onClickSummit(View view){
-        bigMachine1 = findViewById(R.id.editTextBigMachine);
-        amountBigMachine1 = Integer.parseInt(bigMachine1.getText().toString());
-        electricMachine1 = findViewById(R.id.editTextEletricMachine);
-        amountElecMachine1 = Integer.parseInt(electricMachine1.getText().toString());
+    public void onClickSummit(View view) {
+        bigMachine = findViewById(R.id.editTextBigMachine);
+        amountBigMachine1 = Integer.parseInt(bigMachine.getText().toString());
+        electricMachine = findViewById(R.id.editTextEletricMachine);
+        amountElecMachine1 = Integer.parseInt(electricMachine.getText().toString());
         useOfAirCom = findViewById(R.id.editTextUseOfAirCompressor);
         amountUseAirCom = Integer.parseInt(useOfAirCom.getText().toString());
         useOfAirCon = findViewById(R.id.editTextUseOfAirConditioner);
@@ -110,9 +126,17 @@ public class EngineerFormController extends AppCompatActivity {
         feedback = findViewById(R.id.editTextTextPersonName4);
         feedbackString = feedback.getText().toString();
         ship.setStatus("ส่งให้ต้นกลตรวจสอบ");
-        Toast.makeText(this,ship.getStatus(),Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this,EngineerController.class);
-        startActivity(intent);
+//        try {
+//            ConnectionHelper connectionHelper = new ConnectionHelper();
+//            connect = connectionHelper.connectionclass();
+//            if (connect != null) {
+//                String query = "INSERT INTO ShipOperation Where ves_id = " + ;
+//                Statement statement = connect.createStatement();
+//                ResultSet resultSet = statement.executeQuery(query);
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
     }
 
     public void onClickCancel(View view){

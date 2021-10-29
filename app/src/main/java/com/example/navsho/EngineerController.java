@@ -20,6 +20,7 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
     private ArrayList<ShipOperation> shipOp;
     private RecyclerView shipOpRecycle;
     private Intent intent = getIntent();
+    private Navy navy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
         setContentView(R.layout.activity_engineer_controller);
         shipOpRecycle = findViewById(R.id.shipOpRecycle);
         shipOp = new ArrayList<>();
-        Navy navy = getIntent().getParcelableExtra("NAVY");
+        Navy navy = (Navy) getIntent().getSerializableExtra("NAVY");
         Log.i("xxx",navy.getName());
         setShipOp();
         setAdapeter();
@@ -54,6 +55,7 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
         Log.d("xxx","onClick: "+shipOp.get(position).getDate());
         Intent intent = new Intent(this,EngineerFormController.class);
         intent.putExtra("test", shipOp.get(position));
+        intent.putExtra("NAVY",navy);
         startActivity(intent);
     }
 }
