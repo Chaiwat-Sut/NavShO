@@ -11,11 +11,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NavShO">
-        <activity android:name=".CommanderFormController"></activity>
-        <activity android:name=".CommanderController" />
-        <activity android:name=".EngineerController" />
-        <activity android:name=".EngineerFormController" />
+        android:theme="@style/Theme.NavShO"
+        android:windowSoftInputMode="adjustPan">
+        <activity android:name=".CommanderFormController"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".CommanderController"></activity>
+
+        <activity android:name=".EngineerController" >
+        </activity>
+        <activity android:name=".EngineerFormController"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +29,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChiefController"></activity>
-        <activity android:name=".ChiefFormController">
+        <activity android:name=".ChiefFormController"
+            android:windowSoftInputMode="adjustPan">
         </activity>
 
->>>>>>> db05ad4e219d34be7e7139de80cb98bd9dcafc26
     </application>
 
 </manifest>

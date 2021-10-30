@@ -26,8 +26,9 @@
             android:id="@+id/recyclerViewShip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="34dp"
-            tools:layout_editor_absoluteY="0dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -48,13 +49,15 @@
         android:id="@+id/textViewMonthlyForm2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="1dp"
         android:text="แบบฟอร์มรายเดือน"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/shipOrder"
+        app:layout_constraintBottom_toTopOf="@+id/shipOrder"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
