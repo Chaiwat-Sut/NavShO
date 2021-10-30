@@ -74,21 +74,9 @@ public class MainActivity extends AppCompatActivity{
                     role = resultSet.getString("Navy_Role");
                     vesselName = resultSet.getString("ves_name");
                 }
-                if(vesselName.equals("ร.ล.สัตหีบ")){
-                    vessel = new PatrolVessel(realPassword,"sattahip");
-                }
-                else if(vesselName.equals("ร.ล.คลองใหญ่")){
-                    vessel = new PatrolVessel(realPassword,"klongyai");
-                }else if(vesselName.equals("ร.ล.ตากใบ")){
-                    vessel = new PatrolVessel(realPassword,"takbai");
-                }else if(vesselName.equals("ร.ล.กันตัง")){
-                    vessel = new PatrolVessel(realPassword,"guntun");
-                }else if(vesselName.equals("ร.ล.เทพา")){
-                    vessel = new PatrolVessel(realPassword,"lnwpa");
-                }else if(vesselName.equals("ร.ล.ท้ายเหมือง")){
-                    vessel = new PatrolVessel(realPassword,"taimueng");
-                }
-                else vessel = new PatrolVessel(realPassword,null);
+
+                vessel = new PatrolVessel(realPassword,vesselName);
+                vessel.setPicPath(vessel.findPicPath(vesselName));
                 navy = new Navy(navyID,realPassword,name,rank,role);
                 Intent intent;
                 if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ทหารช่าง")){
@@ -100,11 +88,13 @@ public class MainActivity extends AppCompatActivity{
                 else if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ต้นกล")){
                     intent = new Intent(MainActivity.this,ChiefController.class);
                     intent.putExtra("NAVY",navy);
+                    intent.putExtra("VESSEL",vessel);
                     startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ผบ.กตอ.")){
                     intent = new Intent(MainActivity.this,ChiefController.class);
                     intent.putExtra("NAVY",navy);
+                    intent.putExtra("VESSEL",vessel);
                     startActivity(intent);
                 }
                 else{

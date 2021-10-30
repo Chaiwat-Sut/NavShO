@@ -115,7 +115,8 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
     public void getShipOp(){
         try {
             if (connect != null) {
-                String query = "SELECT * from ShipOperation ORDER BY Form_date DESC"                                                                       ;
+                String query = "SELECT * from ShipOperation Where ves_id= '"+ navy.getVesID() +
+                        "' ORDER BY Form_date DESC ";                                                                       ;
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 ArrayList<ShipOperation> shipOpBeforeAdd = new ArrayList<>();
@@ -125,7 +126,7 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
                     int year = Integer.valueOf(dateList[0]);
                     year = year + 543;
                     String date = dateList[2] + "/" + dateList[1] + "/" + year;
-                    shipOp = new ShipOperation(date
+                    shipOp = new ShipOperation(date,navy.getVesID()
                             ,resultSet.getString("OperationStatus"));
                     shipOpBeforeAdd.add(shipOp);
                 }
@@ -137,20 +138,21 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
     }
 
     public void onClickCreateShipOpByMonth(View view){
-        ShipOperation shipOp = new ShipOperation(date,"กำลังดำเนินการ");
+        shipOp = new ShipOperation(date,navy.getVesID(),"กำลังดำเนินการ");
         if(!shipOp.checkIfShiOpExist(shipOpList)){
             // เปลี่ยนปี พ.ศ เป็น ค.ศ. และเปลี่ยน format วันที่
+            Log.i("xxx","notExist");
             date = shipOp.convertDateToDatabase();
             // เอาขึ้น database
             if(connect!=null){
-                String insert = "INSERT INTO ShipOperation (Form_date,OperationStatus) " +
-                        "VALUES "+ "(" + "'"+ date + "'" +","+"'" + shipOp.getStatus() +"'" +")";
+                String insert = "INSERT INTO ShipOperation (Form_date,ves_id,OperationStatus) " +
+                        "VALUES ('"+ date + "','" + navy.getVesID() +"','" + shipOp.getStatus() +"')";
                 Statement statement = null;
                 try {
                     statement = connect.createStatement();
                     statement.executeUpdate(insert);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                } catch (SQLException e) {
+                    e.getErrorCode();
                 }
             }
             getShipOp();
@@ -160,6 +162,7 @@ public class EngineerController extends AppCompatActivity implements RecycleAdap
             Toast.makeText(this,"มีฟอร์มของเดือนนี้อยู่แล้ว\nกรุณาเลือกจากในตาราง",Toast.LENGTH_LONG).show();
         }
     }
+
 
     public void logoutButton(View view){
         Intent intent = new Intent(EngineerController.this,MainActivity.class);

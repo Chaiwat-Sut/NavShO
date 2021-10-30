@@ -17,38 +17,33 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="20dp"
             android:onClick="rejectClick"
             android:text="ไม่ยอมรับแบบฟอร์ม"
             app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button8"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/button8"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="20dp"
             android:onClick="acceptClick"
             android:text="ยอมรับแบบฟอร์มและส่งต่อ"
             app:backgroundTint="#8BC34A"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button7"
-            app:layout_constraintEnd_toStartOf="@+id/button7"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="404dp"
-        android:layout_height="652dp"
+        android:layout_width="406dp"
+        android:layout_height="591dp"
         android:background="#FFFFFF"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -1098,7 +1093,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#66000000"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
