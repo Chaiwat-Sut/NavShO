@@ -1077,6 +1077,83 @@
                 android:textColor="#050533"
                 android:textSize="4sp" />
 
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="ข้อเสนอแนะ"
+                android:textAlignment="center"
+                android:textColor="#050533"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textViewConsel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="(ไม่มีข้อเสนอแนะ)"
+                android:textAlignment="center"
+                android:textColor="#050533"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#050533"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#050533"
+                android:textSize="4sp" />
+
         </LinearLayout>
 
     </ScrollView>
