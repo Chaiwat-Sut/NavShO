@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -135,15 +136,19 @@ public class ChiefController extends AppCompatActivity implements RecycleAdapter
     @Override
     public void onClickListener(int position) {
         shipOp = shipOpList.get(position);
-        if(shipOp.getStatus().equals("กำลังดำเนินการ")){
+        if(shipOp.getStatus().equals("รอต้นกลตรวจสอบ")){
             Intent intent = new Intent(this,ChiefFormController.class);
-            intent.putExtra("test", shipOp);
+            intent.putExtra("SHIPOP", shipOp);
             intent.putExtra("NAVY",navy);
+            intent.putExtra("VESSEL",vessel);
             startActivity(intent);
         }
         else{
-            if(shipOp.getStatus().equals("รอต้นกลตรวจสอบ")){
-                Toast.makeText(this,"กรุณารอการตรวจสอบจากต้นกล",Toast.LENGTH_LONG).show();
+            if(shipOp.getStatus().equals("กำลังดำเนินการ")){
+                Toast.makeText(this,"กรุณารอให้ทหารช่างทำรายการ",Toast.LENGTH_LONG).show();
+            }
+            else if(shipOp.getStatus().equals("กลับไปแก้ไข")){
+                Toast.makeText(this,"กรุณารอให้ทหารช่างแก้ไขรายการ",Toast.LENGTH_LONG).show();
             }
             else if(shipOp.getStatus().equals("รอ ผบ.กตอ. ตรวจสอบ")){
                 Toast.makeText(this,"กรุณารอการตรวจสอบจาก ผบ.กตอ.",Toast.LENGTH_LONG).show();

@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/rejectButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
@@ -31,11 +31,11 @@
                 app:backgroundTint="#F44336"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/button8"
+                app:layout_constraintStart_toEndOf="@+id/acceptButton"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/acceptButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -45,8 +45,8 @@
                 android:onClick="acceptClick"
                 android:text="ยอมรับแบบฟอร์มและส่งต่อ"
                 app:backgroundTint="#8BC34A"
-                app:layout_constraintBaseline_toBaselineOf="@+id/button7"
-                app:layout_constraintEnd_toStartOf="@+id/button7"
+                app:layout_constraintBaseline_toBaselineOf="@+id/rejectButton"
+                app:layout_constraintEnd_toStartOf="@+id/rejectButton"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

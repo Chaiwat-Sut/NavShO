@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/rejectButton"
             android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_marginEnd="4dp"
@@ -28,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/acceptButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -74,9 +74,7 @@
                     android:id="@+id/textViewVessel3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginLeft="150dp"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="40dp"
                     android:text="วันที่:"
                     android:textColor="#050533"
                     android:textSize="20sp" />
@@ -85,11 +83,7 @@
                     android:id="@+id/textViewDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="150dp"
-                    android:layout_marginRight="150dp"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="30dp"
                     android:text="(วันที่)"
                     android:textColor="#050533"
                     android:textSize="20sp" />
@@ -104,8 +98,7 @@
                     android:id="@+id/textViewVessel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginLeft="80dp"
+                    android:layout_marginLeft="40dp"
                     android:text="ของเรือตรวจอ่าว:"
                     android:textColor="#050533"
                     android:textSize="20sp" />
@@ -1097,8 +1090,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1111,8 +1103,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/button10"
@@ -1132,9 +1123,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
             android:layout_marginTop="164dp"
-            android:onClick="comfirmPopUpClick"
+            android:onClick="confirmPopUpClick"
             android:text="ยืนยันและส่ง"
             app:backgroundTint="#4CAF50"
             app:layout_constraintStart_toStartOf="parent"
@@ -1252,13 +1242,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLineRejectReason"
+            android:id="@+id/reportEditText"
             android:layout_width="370dp"
             android:layout_height="350dp"
             android:layout_marginStart="19dp"
-            android:layout_marginLeft="19dp"
             android:layout_marginEnd="18dp"
-            android:layout_marginRight="18dp"
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:ems="10"

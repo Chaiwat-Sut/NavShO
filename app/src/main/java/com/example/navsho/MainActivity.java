@@ -105,6 +105,5 @@ public class MainActivity extends AppCompatActivity{
             e.printStackTrace();
             Toast.makeText(this,"" + e.getMessage(),Toast.LENGTH_LONG).show();
         }
-
     }
 }

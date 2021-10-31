@@ -1195,12 +1195,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="310dp"
                 android:ems="10"
-                android:foregroundGravity="fill_vertical"
-                android:gravity="center_horizontal"
-                android:hint="เขียนข้อเสนอเพิ่มเติม"
-                android:scrollbars="vertical"
+                android:gravity="start|top"
+                android:hint="                          เขียนข้อเสนอเพิ่มเติม"
                 android:inputType="textMultiLine"
-                android:textAlignment="center" />
+                android:scrollbars="vertical"
+                android:textAlignment="textStart" />
 
         </LinearLayout>
 

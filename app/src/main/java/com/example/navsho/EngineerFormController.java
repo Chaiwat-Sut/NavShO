@@ -49,14 +49,14 @@ public class EngineerFormController extends AppCompatActivity {
     private EditText giveDiesel;
     private EditText giveWater;
     private EditText feedback;
-    int amountBigMachine,amountElecMachine,amountUseAirCon, amountUseAirCom, amountUseFreez, amountUseShipEng, amountUsePump, amountUsePure, amountUseRudder, amountUseSplitOil, amountUseOfGear ;
-    double amountGetWater, amountGetBensin, amountGetGladinir, amountGetTelus, amountGetDiesel, amountGiveWater, amountGiveBensin, amountGiveGladinir, amountGiveTelus, amountGiveDiesel;
-    String feedbackString;
+    private int amountBigMachine,amountElecMachine,amountUseAirCon, amountUseAirCom, amountUseFreez, amountUseShipEng, amountUsePump, amountUsePure, amountUseRudder, amountUseSplitOil, amountUseOfGear ;
+    private double amountGetWater, amountGetBensin, amountGetGladinir, amountGetTelus, amountGetDiesel, amountGiveWater, amountGiveBensin, amountGiveGladinir, amountGiveTelus, amountGiveDiesel;
+    private String feedbackString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         navy = (Navy) getIntent().getSerializableExtra("NAVY");
-        shipOp = (ShipOperation) getIntent().getSerializableExtra("test");
+        shipOp = (ShipOperation) getIntent().getSerializableExtra("SHIPOP");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_engineer_form_controller);
         dateT = findViewById(R.id.dateTextView);
@@ -66,6 +66,45 @@ public class EngineerFormController extends AppCompatActivity {
         chiefName = findViewById(R.id.textViewChiefName);
         commanderName = findViewById(R.id.textViewCommanderName);
         selectNavyName();
+        if(shipOp.getStatus().equals("กลับไปแก้ไข")){
+            try {
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                connect = connectionHelper.connectionclass();
+                if (connect != null) {
+                    String query = "SELECT * from ShipOperation " +
+                                   "Where Form_date ='" +  shipOp.convertDateToDatabase() +"' AND ves_id='" + shipOp.getVesID() +"'";
+                    Statement statement = connect.createStatement();
+                    ResultSet resultSet = statement.executeQuery(query);
+                    setEditTextID();
+                    while(resultSet.next()){
+                        bigMachine.setText(String.valueOf(resultSet.getInt("BigMachine")),TextView.BufferType.EDITABLE);
+                        electricMachine.setText(String.valueOf(resultSet.getInt("EletricMachine")),TextView.BufferType.EDITABLE);
+                        useOfAirCom.setText(String.valueOf(resultSet.getInt("AirCompressor")),TextView.BufferType.EDITABLE);
+                        useOfAirCon.setText(String.valueOf(resultSet.getInt("AirConditioner")),TextView.BufferType.EDITABLE);
+                        useOfFreez.setText(String.valueOf(resultSet.getInt("Freezer")),TextView.BufferType.EDITABLE);
+                        useOfShipEng.setText(String.valueOf(resultSet.getInt("ShipEngine")),TextView.BufferType.EDITABLE);
+                        useOfPump.setText(String.valueOf(resultSet.getInt("Pump")),TextView.BufferType.EDITABLE);
+                        useOfWaterPure.setText(String.valueOf(resultSet.getInt("WaterPurifyer")),TextView.BufferType.EDITABLE);
+                        useOfSplitOil.setText(String.valueOf(resultSet.getInt("SplitOilEngine")),TextView.BufferType.EDITABLE);
+                        useOfGear.setText(String.valueOf(resultSet.getInt("Gear")),TextView.BufferType.EDITABLE);
+                        useOfRudder.setText(String.valueOf(resultSet.getInt("Rudder")),TextView.BufferType.EDITABLE);
+                        getDiesel.setText(String.valueOf(resultSet.getFloat("GetOfDiesel")),TextView.BufferType.EDITABLE);
+                        getBensin.setText(String.valueOf(resultSet.getFloat("GetOfBensin")),TextView.BufferType.EDITABLE);
+                        getGladinir.setText(String.valueOf(resultSet.getFloat("GetOfGladinir")),TextView.BufferType.EDITABLE);
+                        getTeslus.setText(String.valueOf(resultSet.getFloat("GetOfTeslus")),TextView.BufferType.EDITABLE);
+                        getWater.setText(String.valueOf(resultSet.getFloat("GetOfWater")),TextView.BufferType.EDITABLE);
+                        giveDiesel.setText(String.valueOf(resultSet.getFloat("GiveDiesel")),TextView.BufferType.EDITABLE);
+                        giveBensin.setText(String.valueOf(resultSet.getFloat("GiveOfBensin")),TextView.BufferType.EDITABLE);
+                        giveGladinir.setText(String.valueOf(resultSet.getFloat("GiveOfGladinir")),TextView.BufferType.EDITABLE);
+                        giveTeslus.setText(String.valueOf(resultSet.getFloat("GiveOfTeslus")),TextView.BufferType.EDITABLE);
+                        giveWater.setText(String.valueOf(resultSet.getFloat("GiveOfWater")),TextView.BufferType.EDITABLE);
+                        feedback.setText(resultSet.getString("Counsel"));
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void selectNavyName() {
@@ -132,6 +171,7 @@ public class EngineerFormController extends AppCompatActivity {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
+            Toast.makeText(EngineerFormController.this,"ส่งข้อมูลแล้ว",Toast.LENGTH_SHORT).show();
         }
         else {
             Toast.makeText(EngineerFormController.this,"กรุณากรอกข้อมูลให้ครบ",Toast.LENGTH_SHORT).show();
@@ -141,47 +181,26 @@ public class EngineerFormController extends AppCompatActivity {
 
     public void setEditTextID() {
         bigMachine = findViewById(R.id.editTextBigMachine);
-
         electricMachine = findViewById(R.id.editTextEletricMachine);
-
         useOfAirCom = findViewById(R.id.editTextUseOfAirCompressor);
-
         useOfAirCon = findViewById(R.id.editTextUseOfAirConditioner);
-
         useOfFreez = findViewById(R.id.editTextUseOfFreezer);
-
         useOfShipEng = findViewById(R.id.editTextUseOfShipEngine);
-
         useOfPump = findViewById(R.id.editTextUseOfPump);
-
         useOfWaterPure = findViewById(R.id.editTextUseOfWaterPurifyer);
-
         useOfRudder = findViewById(R.id.editTextUseOfRudder);
-
         useOfSplitOil = findViewById(R.id.editTextUseOfSplitOilEngine);
-
         useOfGear = findViewById(R.id.editTextUseOfGear);
-
         getWater = findViewById(R.id.editTextGetOfWater);
-
         getBensin = findViewById(R.id.editTextGetOfBensin);
-
         getGladinir = findViewById(R.id.editTextGetOfGladinir);
-
         getTeslus = findViewById(R.id.editTextGetOfTeslus);
-
         getDiesel = findViewById(R.id.editTextGetOfDiesel);
-
         giveBensin = findViewById(R.id.editTextGiveOfBensin);
-
         giveGladinir = findViewById(R.id.editTextGiveOfGladinir);
-
         giveTeslus = findViewById(R.id.editTextGiveOfTeslus);
-
         giveDiesel = findViewById(R.id.editTextGiveDiesel);
-
         giveWater = findViewById(R.id.editTextGiveOfWater);
-
         feedback = findViewById(R.id.editTextTextPersonName4);
     }
 
@@ -226,8 +245,27 @@ public class EngineerFormController extends AppCompatActivity {
     }
 
     public void onClickCancel(View view){
-        Intent intent = new Intent(this,EngineerController.class);
-        startActivity(intent);
-        Toast.makeText(this,"I'm quit",Toast.LENGTH_LONG).show();
+        bigMachine.setText("",TextView.BufferType.EDITABLE);
+        electricMachine.setText("",TextView.BufferType.EDITABLE);
+        useOfAirCom.setText("",TextView.BufferType.EDITABLE);
+        useOfAirCon.setText("",TextView.BufferType.EDITABLE);
+        useOfFreez.setText("",TextView.BufferType.EDITABLE);
+        useOfShipEng.setText("",TextView.BufferType.EDITABLE);
+        useOfPump.setText("",TextView.BufferType.EDITABLE);
+        useOfWaterPure.setText("",TextView.BufferType.EDITABLE);
+        useOfSplitOil.setText("",TextView.BufferType.EDITABLE);
+        useOfGear.setText("",TextView.BufferType.EDITABLE);
+        useOfRudder.setText("",TextView.BufferType.EDITABLE);
+        getDiesel.setText("",TextView.BufferType.EDITABLE);
+        getBensin.setText("",TextView.BufferType.EDITABLE);
+        getGladinir.setText("",TextView.BufferType.EDITABLE);
+        getTeslus.setText("",TextView.BufferType.EDITABLE);
+        getWater.setText("",TextView.BufferType.EDITABLE);
+        giveDiesel.setText("",TextView.BufferType.EDITABLE);
+        giveBensin.setText("",TextView.BufferType.EDITABLE);
+        giveGladinir.setText("",TextView.BufferType.EDITABLE);
+        giveTeslus.setText("",TextView.BufferType.EDITABLE);
+        giveWater.setText("",TextView.BufferType.EDITABLE);
+        feedback.setText("",TextView.BufferType.EDITABLE);
     }
 }
