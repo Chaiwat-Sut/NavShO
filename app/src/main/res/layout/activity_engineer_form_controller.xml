@@ -47,6 +47,7 @@
         android:layout_width="406dp"
         android:layout_height="591dp"
         android:background="#FFFFFF"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -1368,6 +1369,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="44dp"
+        android:layout_height="43dp"
+        android:onClick="viewmaihaet"
+        app:srcCompat="@drawable/intent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="189dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
