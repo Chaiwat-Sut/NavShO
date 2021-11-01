@@ -2,6 +2,7 @@ package com.example.navsho;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +12,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.navsho.report.ShipOperation;
+import com.example.navsho.alluseclass.ShipOperation;
+import com.example.navsho.pdfcontroller.Common;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -53,7 +70,58 @@ public class CommanderFormController extends AppCompatActivity {
             rejectButton.setVisibility(View.GONE);
         }
 
+        Dexter.withActivity(this)
+                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        createPDFFile(Common.getAppPath(CommanderFormController.this)+"รายงาน_" + shipOp.getVesID() + "_" + shipOp.getDate());
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                    }
+                })
+                .check();
     }
+
+    private void createPDFFile(String path) {
+        if(new File(path).exists()){
+            new File(path).delete();
+        }
+        try{
+            Document document = new Document();
+            //Save
+            PdfWriter.getInstance(document,new FileOutputStream(path));
+            //Open to write
+            document.open();
+
+            // Setting
+            document.setPageSize(PageSize.A4);
+            document.addCreationDate();
+            document.addAuthor("จิรัณ ทรัพย์ปรีชา");
+            document.addCreator("จิรัณ ทรัพย์ปรีชา");
+
+            //Font Setting
+            BaseColor colorAccent = new BaseColor(0,153,20,255);
+            float fontSize = 20.0f;
+            float valueFontSize = 26.0f;
+
+            //Custom font
+            BaseFont fontName = BaseFont.createFont("assets/fonts/brandon_medium.otf","UTF-8",BaseFont.EMBEDDED);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void changeData(){
         viewDate.setText("");
         viewVes.setText("");
@@ -158,6 +226,7 @@ public class CommanderFormController extends AppCompatActivity {
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
+                    viewDate.setText(shipOp.getDate());
                     viewBigEngine.setText(resultSet.getInt("BigMachine") + " ชม.");
                     viewElectricEngine.setText(resultSet.getInt("EletricMachine") + " ชม.");
                     viewUseAirCon.setText(resultSet.getInt("AirConditioner") + " ชม.");

@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +18,7 @@ import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.alluseclass.PatrolVessel;
 import com.example.navsho.recycleviewadapter.OperatorRecycleAdapter;
 //import com.example.navsho.recycleviewadapter.ShipRecycleAdapter;
-import com.example.navsho.report.ShipOperation;
+import com.example.navsho.alluseclass.ShipOperation;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

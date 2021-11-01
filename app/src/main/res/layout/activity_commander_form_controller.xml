@@ -79,9 +79,7 @@
                         android:id="@+id/textViewVessel3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="150dp"
-                        android:layout_marginLeft="150dp"
-                        android:layout_weight="1"
+                        android:layout_marginLeft="40dp"
                         android:text="วันที่:"
                         android:textColor="#050533"
                         android:textSize="20sp" />
@@ -90,10 +88,7 @@
                         android:id="@+id/textViewDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginEnd="150dp"
-                        android:layout_marginRight="150dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_weight="1"
                         android:text="(วันที่)"
                         android:textColor="#050533"
@@ -109,8 +104,7 @@
                         android:id="@+id/textViewVessel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginLeft="40dp"
                         android:text="ของเรือตรวจอ่าว:"
                         android:textColor="#050533"
                         android:textSize="20sp" />
@@ -148,7 +142,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="(ชื่อของไอคนดำ)"
+                        android:text="(ชื่อทหารช่าง)"
                         android:textColor="#050533"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -174,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="(ชื่อของไอคนเหลือง)"
+                        android:text="(ชื่อของต้นกล)"
                         android:textColor="#050533"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -200,7 +194,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="(ชื่อของไอคนขาว)"
+                        android:text="(ชื่อของผบ.กตอ.)"
                         android:textColor="#050533"
                         android:textSize="20sp" />
                 </LinearLayout>
