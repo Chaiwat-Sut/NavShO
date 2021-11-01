@@ -114,7 +114,7 @@ public class CommanderFormController extends AppCompatActivity {
             float valueFontSize = 26.0f;
 
             //Custom font
-            BaseFont fontName = BaseFont.createFont("assets/fonts/brandon_medium.otf","UTF-8",BaseFont.EMBEDDED);
+            BaseFont fontName = BaseFont.createFont("assets/fonts/cordia.ttc","UTF-8",BaseFont.EMBEDDED);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
