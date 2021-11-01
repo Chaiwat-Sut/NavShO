@@ -188,6 +188,7 @@ import java.util.Calendar;
             Intent intent = new Intent(this,EngineerFormController.class);
             intent.putExtra("SHIPOP", shipOp);
             intent.putExtra("NAVY",navy);
+            intent.putExtra("VESSEL",vessel);
             startActivity(intent);
         }
         else{

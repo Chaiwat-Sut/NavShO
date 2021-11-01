@@ -2,6 +2,7 @@ package com.example.navsho;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.navsho.alluseclass.Navy;
+import com.example.navsho.alluseclass.PatrolVessel;
 import com.example.navsho.report.ShipOperation;
 
 import java.sql.Connection;
@@ -21,6 +23,7 @@ import java.sql.Statement;
 public class EngineerFormController extends AppCompatActivity {
     private Connection connect;
     private Navy navy;
+    private PatrolVessel vessel;
     private ShipOperation shipOp;
     private ImageView modifyImage;
     private TextView dateT;
@@ -60,6 +63,7 @@ public class EngineerFormController extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         navy = (Navy) getIntent().getSerializableExtra("NAVY");
         shipOp = (ShipOperation) getIntent().getSerializableExtra("SHIPOP");
+        vessel = (PatrolVessel) getIntent().getSerializableExtra("VESSEL") ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_engineer_form_controller);
         dateT = findViewById(R.id.dateTextView);
@@ -73,8 +77,8 @@ public class EngineerFormController extends AppCompatActivity {
         lightDecease = findViewById(R.id.lightDecease1);
         acceptPopUpPage = findViewById(R.id.acceptPopUpPage1);
 
-        acceptButton1 = findViewById(R.id.acceptButton1);
-        clearFormButton = findViewById(R.id.clearFormButton);
+        acceptButton1 = findViewById(R.id.clearFormButton);
+        clearFormButton = findViewById(R.id.acceptButton1);
 
         selectNavyName();
         if(shipOp.getStatus().equals("กลับไปแก้ไข")){
@@ -110,55 +114,6 @@ public class EngineerFormController extends AppCompatActivity {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void onClickSummit(View view) {
-        setEditTextID();
-        if (isEditTextEmpty()) {
-            setValues();
-            try {
-                ConnectionHelper connectionHelper = new ConnectionHelper();
-                connect = connectionHelper.connectionclass();
-                if (connect != null) {
-                    Statement statement = connect.createStatement();
-                    String query = "UPDATE ShipOperation " +
-                            "SET BigMachine =" + "'" +amountBigMachine +"'," +
-                            "EletricMachine =" + "'" +amountElecMachine +"'," +
-                            "AirConditioner =" + "'" +amountUseAirCon +"'," +
-                            "AirCompressor ="+ "'" +amountUseAirCom +"'," +
-                            "Freezer ="+ "'" +amountUseFreez +"'," +
-                            "ShipEngine ="+ "'" +amountUseFreez +"'," +
-                            "Pump =" + "'" +amountUsePump +"'," +
-                            "Rudder ="  + "'" +amountUseRudder +"'," +
-                            "WaterPurifyer =" + "'" +amountUsePure +"'," +
-                            "SplitOilEngine =" + "'" +amountUseSplitOil +"'," +
-                            "Gear =" + "'" +amountUseOfGear +"'," +
-                            "GetOfDiesel =" + "'" +amountGetDiesel +"'," +
-                            "GetOfBensin =" + "'" +amountGetBensin +"'," +
-                            "GetOfGladinir =" + "'" +amountGetGladinir +"'," +
-                            "GetOfTeslus =" + "'" +amountGetTelus +"'," +
-                            "GetOfWater =" + "'" +amountGetWater +"'," +
-                            "GiveDiesel =" + "'" +amountGiveDiesel +"'," +
-                            "GiveOfBensin ="+ "'" +amountGiveBensin +"'," +
-                            "GiveOfGladinir ="+ "'" +amountGiveGladinir +"'," +
-                            "GiveOfTeslus ="+ "'" +amountGetTelus +"'," +
-                            "GiveOfWater =" + "'" +amountGetTelus +"'," +
-                            "OperationStatus ='รอต้นกลตรวจสอบ'," +
-                            "Counsel =" + "'" +feedbackString +"'"
-                            + " Where Form_date =" + "'" +shipOp.convertDateToDatabase()+"'";
-                    statement.executeUpdate(query);
-                }
-                else {
-                    Toast.makeText(EngineerFormController.this,"connect fail",Toast.LENGTH_SHORT).show();
-                }
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            Toast.makeText(EngineerFormController.this,"ส่งข้อมูลแล้ว",Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(EngineerFormController.this,"กรุณากรอกข้อมูลให้ครบ",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -267,31 +222,6 @@ public class EngineerFormController extends AppCompatActivity {
                 && !giveWater.getText().toString().isEmpty());
     }
 
-    public void onClickCancel(View view){
-        bigMachine.setText("",TextView.BufferType.EDITABLE);
-        electricMachine.setText("",TextView.BufferType.EDITABLE);
-        useOfAirCom.setText("",TextView.BufferType.EDITABLE);
-        useOfAirCon.setText("",TextView.BufferType.EDITABLE);
-        useOfFreez.setText("",TextView.BufferType.EDITABLE);
-        useOfShipEng.setText("",TextView.BufferType.EDITABLE);
-        useOfPump.setText("",TextView.BufferType.EDITABLE);
-        useOfWaterPure.setText("",TextView.BufferType.EDITABLE);
-        useOfSplitOil.setText("",TextView.BufferType.EDITABLE);
-        useOfGear.setText("",TextView.BufferType.EDITABLE);
-        useOfRudder.setText("",TextView.BufferType.EDITABLE);
-        getDiesel.setText("",TextView.BufferType.EDITABLE);
-        getBensin.setText("",TextView.BufferType.EDITABLE);
-        getGladinir.setText("",TextView.BufferType.EDITABLE);
-        getTeslus.setText("",TextView.BufferType.EDITABLE);
-        getWater.setText("",TextView.BufferType.EDITABLE);
-        giveDiesel.setText("",TextView.BufferType.EDITABLE);
-        giveBensin.setText("",TextView.BufferType.EDITABLE);
-        giveGladinir.setText("",TextView.BufferType.EDITABLE);
-        giveTeslus.setText("",TextView.BufferType.EDITABLE);
-        giveWater.setText("",TextView.BufferType.EDITABLE);
-        feedback.setText("",TextView.BufferType.EDITABLE);
-    }
-
     public void onClickModifyText(View view){
 
     }
@@ -303,6 +233,73 @@ public class EngineerFormController extends AppCompatActivity {
         acceptButton1.setEnabled(false);
         clearFormButton.setEnabled(false);
     }
-    
+
+
+    public void onClickAcceptPopupButton(View view) {
+        setEditTextID();
+        if (isEditTextEmpty()) {
+            setValues();
+            try {
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                connect = connectionHelper.connectionclass();
+                if (connect != null) {
+                    Statement statement = connect.createStatement();
+                    String query = "UPDATE ShipOperation " +
+                            "SET BigMachine =" + "'" +amountBigMachine +"'," +
+                            "EletricMachine =" + "'" +amountElecMachine +"'," +
+                            "AirConditioner =" + "'" +amountUseAirCon +"'," +
+                            "AirCompressor ="+ "'" +amountUseAirCom +"'," +
+                            "Freezer ="+ "'" +amountUseFreez +"'," +
+                            "ShipEngine ="+ "'" +amountUseFreez +"'," +
+                            "Pump =" + "'" +amountUsePump +"'," +
+                            "Rudder ="  + "'" +amountUseRudder +"'," +
+                            "WaterPurifyer =" + "'" +amountUsePure +"'," +
+                            "SplitOilEngine =" + "'" +amountUseSplitOil +"'," +
+                            "Gear =" + "'" +amountUseOfGear +"'," +
+                            "GetOfDiesel =" + "'" +amountGetDiesel +"'," +
+                            "GetOfBensin =" + "'" +amountGetBensin +"'," +
+                            "GetOfGladinir =" + "'" +amountGetGladinir +"'," +
+                            "GetOfTeslus =" + "'" +amountGetTelus +"'," +
+                            "GetOfWater =" + "'" +amountGetWater +"'," +
+                            "GiveDiesel =" + "'" +amountGiveDiesel +"'," +
+                            "GiveOfBensin ="+ "'" +amountGiveBensin +"'," +
+                            "GiveOfGladinir ="+ "'" +amountGiveGladinir +"'," +
+                            "GiveOfTeslus ="+ "'" +amountGetTelus +"'," +
+                            "GiveOfWater =" + "'" +amountGetTelus +"'," +
+                            "OperationStatus ='รอต้นกลตรวจสอบ'," +
+                            "Counsel =" + "'" +feedbackString +"'"
+                            + " Where Form_date =" + "'" +shipOp.convertDateToDatabase()+"'";
+                    statement.executeUpdate(query);
+                }
+            } catch (SQLException e) {
+                e.getErrorCode();
+            }
+            Toast.makeText(EngineerFormController.this,"ส่งข้อมูลแล้ว",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            lightDecease.setVisibility(View.GONE);
+            acceptPopUpPage.setVisibility(View.GONE);
+
+            acceptButton1.setEnabled(true);
+            clearFormButton.setEnabled(true);
+            Toast.makeText(EngineerFormController.this,"กรุณากรอกข้อมูลให้ครบ",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickRejectPopupButton(View view){
+        lightDecease.setVisibility(View.GONE);
+        acceptPopUpPage.setVisibility(View.GONE);
+
+        acceptButton1.setEnabled(true);
+        clearFormButton.setEnabled(true);
+    }
+
+    public void onClickRejectPopUpButton(View view){
+        Intent intent = new Intent(this,EngineerController.class);
+        intent.putExtra("NAVY",navy);
+        intent.putExtra("SHIPOP",shipOp);
+        intent.putExtra("VESSEL",vessel);
+        startActivity(intent);
+    }
 
 }

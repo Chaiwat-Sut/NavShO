@@ -119,19 +119,4 @@ public class MainActivity extends AppCompatActivity{
             Toast.makeText(this,"" + e.getMessage(),Toast.LENGTH_LONG).show();
         }
     }
-
-    public void hideNavigationBar(){
-        this.getWindow().getDecorView()
-                .setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_FULLSCREEN |
-                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                );
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        hideNavigationBar();
-    }
 }

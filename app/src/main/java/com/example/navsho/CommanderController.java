@@ -1,20 +1,20 @@
 package com.example.navsho;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.navsho.alluseclass.PatrolVessel;
 import com.example.navsho.recycleviewadapter.OperatorRecycleAdapter;
 import com.example.navsho.recycleviewadapter.ShipRecycleAdapter;
+import com.example.navsho.report.ShipOperation;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,18 +22,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CommanderController extends AppCompatActivity implements ShipRecycleAdapter.OnClickPatrolListener{
+public class CommanderController extends AppCompatActivity implements ShipRecycleAdapter.OnClickPatrolListener,OperatorRecycleAdapter.OnShipListener{
 
     private Connection connect;
     private ArrayList<PatrolVessel> vesselList = new ArrayList<>();
-    private RecyclerView recyclerViewShip;
+    private ArrayList<ShipOperation> shipOpList = new ArrayList<>();
+    private ShipOperation shipOp;
+    private RecyclerView recyclerViewShip, recycleViewShipOp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commander_controller);
         recyclerViewShip = findViewById(R.id.recyclerViewShip);
+        recycleViewShipOp = findViewById(R.id.recycleViewShipOp);
         readVesselFormDatabase();
-        setAdapter();
+        setShipAdapter();
     }
 
     public void readVesselFormDatabase(){
@@ -62,18 +65,54 @@ public class CommanderController extends AppCompatActivity implements ShipRecycl
         }
     }
 
-    private void setAdapter() {
-        ShipRecycleAdapter operationAdapter = new ShipRecycleAdapter(vesselList,this);
+    private void setShipAdapter() {
+        ShipRecycleAdapter shipRecycleAdapter = new ShipRecycleAdapter(vesselList,this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewShip.setLayoutManager(layoutManager);
         recyclerViewShip.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewShip.setAdapter(operationAdapter);
+        recyclerViewShip.setAdapter(shipRecycleAdapter);
     }
 
+//    private void setShipOpAdapter() {
+//        OperatorRecycleAdapter operatorRecycleAdapter = new OperatorRecycleAdapter(shipOpList, On)
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+//        recycleViewShipOp.setLayoutManager(layoutManager);
+//        recycleViewShipOp.setItemAnimator(new DefaultItemAnimator());
+//        recycleViewShipOp.setAdapter(operatorRecycleAdapter);
+//    }
 
 
     @Override
     public void onClickListener(int position) {
+        PatrolVessel vessel = vesselList.get(position);
+        getShipOp(vessel);
+    }
+
+
+    public void getShipOp(PatrolVessel vessel){
+        try {
+            if (connect != null) {
+                String query = "SELECT * from ShipOperation Where ves_id= '"+ vessel.getVesID() +
+                        "' ORDER BY Form_date DESC ";                                                                       ;
+                Statement statement = connect.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                ArrayList<ShipOperation> shipOpBeforeAdd = new ArrayList<>();
+                while (resultSet.next()) {
+                    String [] dateList = resultSet.getString("Form_date").split("-");
+                    int year = Integer.valueOf(dateList[0]);
+                    year = year + 543;
+                    String date = dateList[2] + "/" + dateList[1] + "/" + year;
+                    shipOp = new ShipOperation(date,vessel.getVesID()
+                            ,resultSet.getString("OperationStatus"));
+                    shipOpBeforeAdd.add(shipOp);
+                }
+                shipOpList.clear();
+                shipOpList.addAll(shipOpBeforeAdd);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        recycleViewShipOp.setVisibility(View.VISIBLE);
 
     }
 }

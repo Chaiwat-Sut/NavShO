@@ -7,6 +7,18 @@
     android:background="#050533"
     tools:context=".CommanderController">
 
+    <TextView
+        android:id="@+id/textViewMonthlyForm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="25dp"
+        android:text="เลือกเรือที่จะดูรายงาน"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shipOrder"
         android:layout_width="350dp"
@@ -14,7 +26,6 @@
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:background="#FFFFFF"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMonthlyForm4">
@@ -29,51 +40,41 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintVertical_bias="0.0">
 
-    <TextView
-        android:id="@+id/textViewMonthlyForm4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="25dp"
-        android:text="เลือกเรือที่จะดูรายงาน"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/buttonLogout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="21dp"
         android:text="ออกจากระบบ"
         android:textColor="#050533"
         app:backgroundTint="#D1BF21"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shipOrder"
-        app:layout_constraintVertical_bias="0.511" />
+        tools:layout_editor_absoluteY="620dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/formInfo"
+        android:id="@+id/formInfoRecycleView"
         android:layout_width="300dp"
         android:layout_height="600dp"
         android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
         android:background="#FFFFFF"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMonthlyForm4">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleViewForm"
+            android:id="@+id/recycleViewShipOp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" />
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="34dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
