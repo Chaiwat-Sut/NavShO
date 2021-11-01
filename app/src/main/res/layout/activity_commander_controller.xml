@@ -44,6 +44,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/formInfo"
+        android:layout_width="350dp"
+        android:layout_height="540dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:background="#FFFFFF"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMonthlyForm4">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Button
         android:id="@+id/buttonLogout4"
         android:layout_width="wrap_content"
@@ -59,21 +79,20 @@
         app:layout_constraintTop_toBottomOf="@+id/shipOrder"
         app:layout_constraintVertical_bias="0.511" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/formInfo"
-        android:layout_width="300dp"
-        android:layout_height="600dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:background="#FFFFFF"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMonthlyForm4">
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginRight="296dp"
+        android:layout_marginBottom="21dp"
+        android:text="กลับ"
+        android:textColor="#050533"
+        app:backgroundTint="#D1BF21"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shipOrder"
+        app:layout_constraintVertical_bias="0.511" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleViewForm"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
