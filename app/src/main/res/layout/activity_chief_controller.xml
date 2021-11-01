@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="268dp"
         android:layout_marginTop="12dp"
+        android:onClick="logoutButton"
         android:text="ออกจากระบบ"
         android:textColor="#050533"
         app:backgroundTint="#D1BF21"

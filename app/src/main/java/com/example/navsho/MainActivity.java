@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity{
                     startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ต้นกล")){
-                    intent = new Intent(MainActivity.this,ChiefController.class);
-                    intent.putExtra("NAVY",navy);
-                    intent.putExtra("VESSEL",vessel);
-                    startActivity(intent);
+                        intent = new Intent(MainActivity.this,ChiefController.class);
+                        intent.putExtra("NAVY",navy);
+                        intent.putExtra("VESSEL",vessel);
+                        startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ผบ.กตอ.")){
                     intent = new Intent(MainActivity.this,CommanderController.class);

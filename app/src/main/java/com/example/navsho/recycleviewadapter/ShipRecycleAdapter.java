@@ -16,31 +16,32 @@ import java.util.ArrayList;
 
 public class ShipRecycleAdapter extends RecyclerView.Adapter<ShipRecycleAdapter.PatrolViewHolder> {
     private ArrayList<PatrolVessel> vesselList;
-    private OnClickPatrolListener onClickPatrolListener;
+    private OnShipListener monShipListener;
 
-    public ShipRecycleAdapter(ArrayList<PatrolVessel> vesselList,OnClickPatrolListener onClickPatrolListener){
+    public ShipRecycleAdapter(ArrayList<PatrolVessel> vesselList, OnShipListener onShipListener){
         this.vesselList = vesselList;
-        this.onClickPatrolListener = onClickPatrolListener;
+        this.monShipListener = onShipListener;
     }
 
-    public class PatrolViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class PatrolViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView vesselNameText;
         private TextView vesIDTextView;
         private ImageView imageShipView;
-        OnClickPatrolListener onClickPatrolListener;
+        OnShipListener onShipListener;
 
-        public PatrolViewHolder(View view,OnClickPatrolListener onClickPatrolListener){
+        public PatrolViewHolder(View view,OnShipListener onShipListener){
             super(view);
             vesselNameText = view.findViewById(R.id.vesselNameText);
             vesIDTextView = view.findViewById(R.id.vesIDTextView);
             imageShipView = view.findViewById(R.id.modifyImage);
-            this.onClickPatrolListener = onClickPatrolListener;
+            this.onShipListener = onShipListener;
 
-            view.setOnClickListener(this);
+            itemView.setOnClickListener(this);
         }
+
         @Override
-        public void onClick(View view) {
-            onClickPatrolListener.onClickListener(getAdapterPosition());
+        public void onClick(View v) {
+            onShipListener.onShipListener(getAdapterPosition());
         }
     }
 
@@ -48,7 +49,7 @@ public class ShipRecycleAdapter extends RecyclerView.Adapter<ShipRecycleAdapter.
     @Override
     public PatrolViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.ship_recycle_layout,parent,false);
-        return new PatrolViewHolder(itemView,onClickPatrolListener);
+        return new PatrolViewHolder(itemView,monShipListener);
     }
 
     @Override
@@ -68,9 +69,7 @@ public class ShipRecycleAdapter extends RecyclerView.Adapter<ShipRecycleAdapter.
         return vesselList.size();
     }
 
-
-    public interface OnClickPatrolListener {
-        void onClickListener(int position);
+    public interface OnShipListener{
+        void onShipListener(int position);
     }
-
 }

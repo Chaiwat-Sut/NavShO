@@ -30,7 +30,7 @@ public class ChiefFormController extends AppCompatActivity {
 
     private Connection connect;
 
-    private static final DecimalFormat df = new DecimalFormat("0.000");
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     private Button acceptButton,rejectButton;
     private View lightDecease,rejectPopUpPage,acceptPopUpPage;
 
@@ -43,8 +43,8 @@ public class ChiefFormController extends AppCompatActivity {
         vessel = (PatrolVessel) getIntent().getSerializableExtra("VESSEL");
 
         lightDecease = findViewById(R.id.lightDecease1);
-        rejectPopUpPage = findViewById(R.id.rejectPopUpPage);
-        acceptPopUpPage = findViewById(R.id.acceptPopUpPage1);
+        rejectPopUpPage = findViewById(R.id.modifyPopup);
+        acceptPopUpPage = findViewById(R.id.acceptPopUpPage);
 
         acceptButton = findViewById(R.id.acceptButton);
         rejectButton = findViewById(R.id.rejectButton);
@@ -56,6 +56,10 @@ public class ChiefFormController extends AppCompatActivity {
         selectNavyName();
         setTextViewFromDatabase();
 
+        if(!shipOp.getStatus().equals("รอต้นกลตรวจสอบ")){
+            acceptButton.setVisibility(View.GONE);
+            rejectButton.setVisibility(View.GONE);
+        }
     }
     public void setTextViewFromDatabase(){
         Log.i("xxx",shipOp.convertDateToDatabase() + " " + shipOp.getVesID());
@@ -70,13 +74,11 @@ public class ChiefFormController extends AppCompatActivity {
                         " ON v.ves_id = nv.ves_id " +
                         "INNER JOIN Navy n " +
                         " ON n.NavyID =  nv.NavyID " +
-                        "Where v.ves_id = '" + navy.getVesID() + "' AND s.Form_date ='" + shipOp.convertDateToDatabase() + "'" ;
+                        "Where v.ves_id = '" + shipOp.getVesID() + "' AND s.Form_date ='" + shipOp.convertDateToDatabase() + "'" ;
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
                     viewDate.setText(shipOp.getDate());
-                    viewVes.setText(shipOp.getVesID());
-                    viewChief.setText(navy.getName());
                     viewBigEngine.setText(resultSet.getInt("BigMachine") + " ชม.");
                     viewElectricEngine.setText(resultSet.getInt("EletricMachine") + " ชม.");
                     viewUseAirCon.setText(resultSet.getInt("AirConditioner") + " ชม.");
@@ -255,9 +257,15 @@ public class ChiefFormController extends AppCompatActivity {
                 if (connect != null) {
                     Statement statement = connect.createStatement();
                     String query = "UPDATE ShipOperation " +
-                            "SET OperationStatus='กลับไปแก้ไข', Report = '" + reportEditText.getText().toString() +"' " +
-                            "Where Form_date =" + "'" +shipOp.convertDateToDatabase()+"' AND ves_id ='" + shipOp.getVesID() + "'";
+                            "SET OperationStatus='กลับไปแก้ไข', Report = '" + reportEditText.getText().toString() +"'," +
+                            "Last_Navy_Role ='ต้นกล' " +
+                            "Where Form_date ='" +shipOp.convertDateToDatabase()+"' AND ves_id ='" + shipOp.getVesID() + "'";
                     statement.executeUpdate(query);
+                    Toast.makeText(this,"ส่งกลับแล้วเรียบร้อย",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this,ChiefController.class);
+                    intent.putExtra("NAVY",navy);
+                    intent.putExtra("VESSEL",vessel);
+                    startActivity(intent);
                 }
             } catch (SQLException e) {
                 e.getErrorCode();
