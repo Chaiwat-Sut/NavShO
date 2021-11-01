@@ -244,6 +244,7 @@ public class EngineerFormController extends AppCompatActivity {
         setEditTextID();
         if (isEditTextEmpty()) {
             setValues();
+
             try {
                 ConnectionHelper connectionHelper = new ConnectionHelper();
                 connect = connectionHelper.connectionclass();
@@ -411,4 +412,23 @@ public class EngineerFormController extends AppCompatActivity {
         modifyPopup.setVisibility(View.GONE);
     }
 
+    public double dieselCalculator(){
+        return amountGetDiesel - (((amountBigMachine * 100 + amountUseShipEng * 10 + amountUsePump * 10) / 1000) + amountGiveDiesel) ;
+    }
+
+    public double bensinCalculator(){
+        return amountGetBensin - (((amountElecMachine * 75 + amountUseAirCon * 8 + amountUseAirCom * 7 + amountUseFreez * 7 + amountUseRudder * 3 + amountUsePure * 3 + amountUseSplitOil * 2 + amountUseOfGear * 5) / 1000 ) + amountGiveBensin) ;
+    }
+
+    public double glanierCalculator(){
+        return amountGetGladinir - (amountGiveGladinir + 4) ;
+    }
+
+    public double telusCalculator(){
+        return amountGetTelus - (amountGiveTelus + 4) ;
+    }
+
+    public double waterCalculator(){
+        return amountGetWater - (amountGiveWater + 40);
+    }
 }
