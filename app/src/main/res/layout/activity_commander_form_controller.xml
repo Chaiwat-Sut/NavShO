@@ -43,6 +43,37 @@
                 app:backgroundTint="#8BC34A"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/rejectButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:onClick="printClick"
+                android:text="พิมพ์แบบฟอร์ม"
+                android:visibility="gone"
+                app:backgroundTint="#D1BF21"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/acceptButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/acceptButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:onClick="backToClick"
+                android:text="กลับ"
+                android:visibility="gone"
+                app:backgroundTint="#F44336"
+                app:layout_constraintBaseline_toBaselineOf="@+id/rejectButton"
+                app:layout_constraintEnd_toStartOf="@+id/rejectButton"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
@@ -1074,6 +1105,211 @@
                     android:textSize="8sp" />
 
                 <TextView
+                    android:id="@+id/textView78"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#050533"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#050533"
+                    android:textSize="4sp" />
+
+                <TextView
+                    android:id="@+id/textView80"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textViewFormTitle5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="คงเหลือ"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/textView99"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textView101"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#050533"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#050533"
+                    android:textSize="4sp" />
+
+                <TextView
+                    android:id="@+id/textView104"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewBensin2"
+                        android:layout_width="111dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="น้ำมันเบนซิล"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewBensinRemain2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) กล."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewDiesel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="น้ำมันดีเซล"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewDieselRemain2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) กล."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewGladinier2"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="เชลล์ การ์ดิเนีย (40)"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewGladinerRemain2"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ลิตร."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewTeslus2"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="เชลล์ เทลลัส (68)"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewTeslusRemain2"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ลิตร."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewWater2"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="น้ำจืด"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewWaterRemain2"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ตัน."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView105"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
                     android:id="@+id/textView98"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1346,5 +1582,462 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ScrollView
+            android:layout_width="404dp"
+            android:layout_height="652dp"
+            android:background="#FFFFFF"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewFormTitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="รายงานการใช้งาน"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="30sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewVessel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_weight="1"
+                        android:text="วันที่:"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textViewDate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="150dp"
+                        android:layout_marginRight="150dp"
+                        android:layout_weight="1"
+                        android:text="(วันที่)"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewVessel5"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_weight="1"
+                        android:text="ของเรือตรวจอ่าว:"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textViewVesselId3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="(รหัสเรือ)"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewFormEditor2"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_weight="1"
+                        android:text="ผู้ทำแบบฟอร์ม:"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textViewEditorName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="(ชื่อของไอคนดำ)"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="61dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_weight="1"
+                        android:text="เสนอ ต้นกล:"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textViewChiefName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="(ชื่อของไอคนเหลือง)"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="59dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_weight="1"
+                        android:text="เสนอ ผบ.กตอ:"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textViewCommanderName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="(ชื่อของไอคนขาว)"
+                        android:textColor="#050533"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#050533"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#050533"
+                    android:textSize="4sp" />
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textViewFormTitle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="คงเหลือ"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/textView36"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#050533"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#050533"
+                    android:textSize="4sp" />
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewDiesel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="น้ำมันดีเซล"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewDieselRemain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ชม."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewBensin"
+                        android:layout_width="111dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="น้ำมันเบนซิล"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewBensinRemain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ชม."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewGladinier"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="เชลล์ การ์ดิเนีย (40)"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewGladinerRemain"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ชม."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewTeslus"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="เชลล์ เทลลัส (68)"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewTeslusRemain"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ชม."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewWater"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="น้ำจืด"
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/textViewWaterRemain"
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="(1) ชม."
+                        android:textAlignment="center"
+                        android:textColor="#050533"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView75"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textView67"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#050533"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#050533"
+                    android:textSize="4sp" />
+
+                <TextView
+                    android:id="@+id/textView68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textView69"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:text="ข้อเสนอแนะ"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/textView70"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textView71"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#050533"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#050533"
+                    android:textSize="4sp" />
+
+                <TextView
+                    android:id="@+id/textView72"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/textViewConsel2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="(ไม่มีข้อเสนอแนะ)"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView73"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:text="------------------------------------------------------------------------------------------------------------"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
