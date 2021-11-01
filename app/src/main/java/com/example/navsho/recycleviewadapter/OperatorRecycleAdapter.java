@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class OperatorRecycleAdapter extends RecyclerView.Adapter<OperatorRecycleAdapter.ShipViewHolder>{
     private ArrayList<ShipOperation> shipOp;
-    private OnShipListener mOnShipListner;
+    public OnShipListener mOnShipListner;
 
     public OperatorRecycleAdapter(ArrayList<ShipOperation> shipOp, OnShipListener onShipListener){
         this.shipOp = shipOp;

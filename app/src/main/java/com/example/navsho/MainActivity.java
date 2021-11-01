@@ -99,10 +99,10 @@ public class MainActivity extends AppCompatActivity{
                     startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ต้นกล")){
-                    intent = new Intent(MainActivity.this,ChiefController.class);
-                    intent.putExtra("NAVY",navy);
-                    intent.putExtra("VESSEL",vessel);
-                    startActivity(intent);
+                        intent = new Intent(MainActivity.this,ChiefController.class);
+                        intent.putExtra("NAVY",navy);
+                        intent.putExtra("VESSEL",vessel);
+                        startActivity(intent);
                 }
                 else if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ผบ.กตอ.")){
                     intent = new Intent(MainActivity.this,CommanderController.class);
@@ -118,20 +118,5 @@ public class MainActivity extends AppCompatActivity{
             e.printStackTrace();
             Toast.makeText(this,"" + e.getMessage(),Toast.LENGTH_LONG).show();
         }
-    }
-
-    public void hideNavigationBar(){
-        this.getWindow().getDecorView()
-                .setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_FULLSCREEN |
-                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                );
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        hideNavigationBar();
     }
 }

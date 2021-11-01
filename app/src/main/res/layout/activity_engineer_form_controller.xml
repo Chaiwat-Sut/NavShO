@@ -17,20 +17,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/acceptButton1"
+            android:id="@+id/clearFormButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
             android:layout_marginBottom="48dp"
-            android:onClick="onClickCancel"
+            android:onClick="onClickRejectPopupButton"
             android:text="ยกเลิกและล้างแบบฟอร์ม"
             app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/clearFormButton"
+            android:id="@+id/acceptButton1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -47,7 +46,6 @@
         android:layout_width="406dp"
         android:layout_height="591dp"
         android:background="#FFFFFF"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -1220,7 +1218,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/acceptPopUpPage1"
+        android:id="@+id/acceptPopUpPage"
         android:layout_width="411dp"
         android:layout_height="236dp"
         android:layout_marginTop="250dp"
@@ -1231,26 +1229,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/acceptButtonPopup1"
+            android:id="@+id/rejectButtonPopup1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="220dp"
-            android:layout_marginLeft="220dp"
             android:layout_marginTop="164dp"
-            android:onClick="rejectPopUpClick"
+            android:onClick="onClickCloseAcceptPopup"
             android:text="กลับไปตรวจสอบ"
             app:backgroundTint="#F44336"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/rejectButtonPopup1"
+            android:id="@+id/acceptButtonPopup1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
             android:layout_marginTop="164dp"
-            android:onClick="comfirmPopUpClick"
+            android:onClick="onClickAcceptPopupButton"
             android:text="ยืนยันและส่ง"
             app:backgroundTint="#4CAF50"
             app:layout_constraintStart_toStartOf="parent"
@@ -1300,7 +1296,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="189dp"
         android:layout_marginBottom="401dp"
-        android:onClick="onClickModifyText"
+        android:onClick="onClickShowModifyText"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintStart_toStartOf="parent"
@@ -1308,10 +1304,11 @@
         app:srcCompat="@drawable/intent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rejectPopGamerTV.Ssport.6"
-        android:layout_width="411"
-        android:layout_height="236"
+        android:id="@+id/rejectPopUpPage"
+        android:layout_width="411dp"
+        android:layout_height="236dp"
         android:layout_marginTop="250dp"
+        android:background="#050533"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -1321,10 +1318,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
             android:layout_weight="1"
             android:text="ยกเลิกและล้างแบบฟอร์มนี้?"
             android:textColor="#FFFFFF"
@@ -1370,9 +1365,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="220dp"
-            android:layout_marginLeft="220dp"
             android:layout_marginTop="164dp"
-            android:onClick="rejectBackPopUpClick"
+            android:onClick="onClickCloseRejectPopup"
             android:text="กลับ"
             app:backgroundTint="#F44336"
             app:layout_constraintStart_toStartOf="parent"
@@ -1380,12 +1374,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rejectPopUpPage"
+        android:id="@+id/modifyPopup"
         android:layout_width="407dp"
         android:layout_height="520dp"
         android:layout_marginBottom="112dp"
         android:background="#050533"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -1395,9 +1389,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="272dp"
-            android:layout_marginLeft="272dp"
             android:layout_marginTop="468dp"
-            android:onClick="RollBackPopUpClick"
+            android:onClick="onClickCloseModifyPopup"
             android:text="กลับ"
             android:textSize="14sp"
             app:backgroundTint="#4CAF50"
@@ -1417,13 +1410,13 @@
             android:text="แบบฟอร์มไม่ถูกยอมรับ"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView30"
+            app:layout_constraintBottom_toTopOf="@+id/textViewModi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/textViewModi"
             android:layout_width="289dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -1454,7 +1447,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewMaihate"
+                    android:id="@+id/modifyTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"

@@ -151,8 +151,9 @@ import java.util.Calendar;
             date = shipOp.convertDateToDatabase();
             // เอาขึ้น database
             if(connect!=null){
-                String insert = "INSERT INTO ShipOperation (Form_date,ves_id,NavyID_writer,OperationStatus) " +
-                        "VALUES ('"+ date + "','" + navy.getVesID() +"','" + navy.getNavyID() + "','" + shipOp.getStatus() +"')";
+                String insert = "INSERT INTO ShipOperation (Form_date,ves_id,NavyID_writer,OperationStatus,Last_Navy_Role) " +
+                        "VALUES ('"+ date + "','" + navy.getVesID() +"','" + navy.getNavyID() + "','" + shipOp.getStatus() +"'," +
+                        "'กำลังดำเนินการ')";
                 Statement statement = null;
                 try {
                     statement = connect.createStatement();
@@ -188,17 +189,30 @@ import java.util.Calendar;
             Intent intent = new Intent(this,EngineerFormController.class);
             intent.putExtra("SHIPOP", shipOp);
             intent.putExtra("NAVY",navy);
+            intent.putExtra("VESSEL",vessel);
             startActivity(intent);
         }
         else{
             if(shipOp.getStatus().equals("รอต้นกลตรวจสอบ")){
-                Toast.makeText(this,"กรุณารอการตรวจสอบจากต้นกล",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this,ChiefFormController.class);
+                intent.putExtra("SHIPOP", shipOp);
+                intent.putExtra("NAVY",navy);
+                intent.putExtra("VESSEL",vessel);
+                startActivity(intent);
             }
             else if(shipOp.getStatus().equals("รอ ผบ.กตอ. ตรวจสอบ")){
-                Toast.makeText(this,"กรุณารอการตรวจสอบจาก ผบ.กตอ.",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this,ChiefFormController.class);
+                intent.putExtra("SHIPOP", shipOp);
+                intent.putExtra("NAVY",navy);
+                intent.putExtra("VESSEL",vessel);
+                startActivity(intent);
             }
             else if(shipOp.getStatus().equals("เสร็จสิน")){
-                Toast.makeText(this,"ส่งแบบฟอร์มเสร็จสิ้นแล้ว",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this,ChiefFormController.class);
+                intent.putExtra("SHIPOP", shipOp);
+                intent.putExtra("NAVY",navy);
+                intent.putExtra("VESSEL",vessel);
+                startActivity(intent);
             }
         }
     }

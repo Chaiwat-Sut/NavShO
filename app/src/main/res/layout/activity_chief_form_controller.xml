@@ -31,7 +31,7 @@
             android:id="@+id/acceptButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginBottom="20dp"
             android:onClick="acceptClick"
             android:text="ยอมรับแบบฟอร์มและส่งต่อ"
@@ -1385,7 +1385,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/acceptPopUpPage1"
+        android:id="@+id/acceptPopUpPage"
         android:layout_width="411dp"
         android:layout_height="236dp"
         android:layout_marginTop="250dp"
@@ -1396,7 +1396,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/acceptButtonPopup1"
+            android:id="@+id/rejectButtonPopup1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="220dp"
@@ -1409,7 +1409,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/rejectButtonPopup1"
+            android:id="@+id/acceptButtonPopup1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -1458,7 +1458,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rejectPopUpPage"
+        android:id="@+id/modifyPopup"
         android:layout_width="407dp"
         android:layout_height="520dp"
         android:layout_marginBottom="112dp"
@@ -1508,13 +1508,13 @@
             android:text="ไม่ยอมรับแบบฟอร์มนี้?"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView30"
+            app:layout_constraintBottom_toTopOf="@+id/textViewModi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/textViewModi"
             android:layout_width="289dp"
             android:layout_height="42dp"
             android:layout_marginStart="60dp"
@@ -1546,7 +1546,7 @@
             app:layout_constraintBottom_toTopOf="@+id/button12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewModi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
