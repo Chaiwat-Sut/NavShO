@@ -8,14 +8,13 @@ import java.io.File;
 
 public class Common {
     public static String getAppPath(Context context){
-        File dir = new File(android.os.Environment.getExternalStorageState()
-        + File.separator
-                + context.getResources().getString(R.string.app_name)
+        File dir = new File(File.separator + "data" + File.separator + "data"
+                + File.separator
+                + "com.example.navsho"
                 + File.separator
         );
-        if(!dir.exists()){
+        if(!dir.exists())
             dir.mkdir();
             return dir.getPath() + File.separator;
-        }
     }
 }

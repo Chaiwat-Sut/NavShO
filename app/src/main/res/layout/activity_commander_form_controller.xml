@@ -45,14 +45,11 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
-                android:id="@+id/rejectButton2"
+                android:id="@+id/printButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:onClick="printClick"
                 android:text="พิมพ์แบบฟอร์ม"
-                android:visibility="gone"
                 app:backgroundTint="#D1BF21"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +57,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/acceptButton2"
+                android:id="@+id/backButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:onClick="backToClick"
                 android:text="กลับ"
                 android:visibility="gone"
                 app:backgroundTint="#F44336"
