@@ -47,6 +47,7 @@
         android:layout_width="406dp"
         android:layout_height="591dp"
         android:background="#FFFFFF"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -1305,6 +1306,171 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/intent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rejectPopGamerTV.Ssport.6"
+        android:layout_width="411"
+        android:layout_height="236"
+        android:layout_marginTop="250dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
+            android:text="ยกเลิกและล้างแบบฟอร์มนี้?"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
+            android:text="*หากกดยกเลิกไปแล้วฟอร์มนี้จะถูกล้างทันที และระบบจะพากลับสู่หน้าหลัก*"
+            android:textColor="#F44336"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+        <Button
+            android:id="@+id/rejectAndClearButtonPopup"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="164dp"
+            android:onClick="rejectClearPopUpClick"
+            android:text="ยกเลิกแบบฟอร์ม"
+            app:backgroundTint="#4CAF50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/rejectBackButtonPopup"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="164dp"
+            android:onClick="rejectBackPopUpClick"
+            android:text="กลับ"
+            app:backgroundTint="#F44336"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rejectPopUpPage"
+        android:layout_width="407dp"
+        android:layout_height="520dp"
+        android:layout_marginBottom="112dp"
+        android:background="#050533"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="272dp"
+            android:layout_marginLeft="272dp"
+            android:layout_marginTop="468dp"
+            android:onClick="RollBackPopUpClick"
+            android:text="กลับ"
+            android:textSize="14sp"
+            app:backgroundTint="#4CAF50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="289dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:text="แบบฟอร์มไม่ถูกยอมรับ"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginRight="58dp"
+            android:layout_weight="1"
+            android:text="หมายเหตุที่แนบมา"
+            android:textAlignment="center"
+            android:textColor="#F44336"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="383dp"
+            app:layout_constraintBottom_toTopOf="@+id/button12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewMaihate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="(หมายเหตุ)"
+                    android:textAlignment="center"
+                    android:textColor="#F44336"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
