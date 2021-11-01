@@ -20,15 +20,6 @@ public class Navy implements Serializable {
         this.role = role;
     }
 
-    protected Navy(Parcel in) {
-        navyID = in.readString();
-        name = in.readString();
-        vesID = in.readString();
-        rank = in.readString();
-        role = in.readString();
-    }
-
-
     public String getNavyID() {
         return navyID;
     }

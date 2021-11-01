@@ -7,6 +7,7 @@
     android:background="#050533">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="412dp"
         android:layout_height="98dp"
         android:layout_marginTop="633dp"
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/acceptButton1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
@@ -29,13 +30,12 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/clearFormButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginBottom="48dp"
-            android:onClick="onClickSummit"
+            android:onClick="acceptClick"
             android:text="ยืนยันและส่งแบบฟอร์ม"
             app:backgroundTint="#4CAF50"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,6 @@
         android:layout_width="406dp"
         android:layout_height="591dp"
         android:background="#FFFFFF"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -144,7 +143,7 @@
                     android:layout_marginStart="3dp"
                     android:layout_marginLeft="3dp"
                     android:layout_weight="1"
-                    android:text="(ชื่อของไอคนดำ)"
+                    android:text="(ชื่อทหารช่าง)"
                     android:textColor="#050533"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -171,7 +170,7 @@
                     android:layout_marginStart="26dp"
                     android:layout_marginLeft="26dp"
                     android:layout_weight="1"
-                    android:text="(ชื่อของไอคนเหลือง)"
+                    android:text="(ชื่อต้นกล)"
                     android:textColor="#050533"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -198,7 +197,7 @@
                     android:layout_marginStart="7dp"
                     android:layout_marginLeft="7dp"
                     android:layout_weight="1"
-                    android:text="(ชื่อของไอคนขาว)"
+                    android:text="(ชื่อผบ.กตอ.)"
                     android:textColor="#050533"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -1207,7 +1206,7 @@
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/lightDecease"
+        android:id="@+id/lightDecease1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#66000000"
@@ -1220,7 +1219,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/acceptPopUpPage"
+        android:id="@+id/acceptPopUpPage1"
         android:layout_width="411dp"
         android:layout_height="236dp"
         android:layout_marginTop="250dp"
@@ -1231,7 +1230,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/acceptButtonPopup1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="220dp"
@@ -1244,7 +1243,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/rejectButtonPopup1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -1293,91 +1292,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rejectPopUpPage"
-        android:layout_width="408dp"
-        android:layout_height="213dp"
-        android:layout_marginBottom="236dp"
-        android:background="#050533"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="244dp"
-            android:layout_marginLeft="244dp"
-            android:layout_marginTop="116dp"
-            android:onClick="SentBackPopUpClick"
-            android:text="ล้างแบบฟอร์มนี้"
-            android:textSize="14sp"
-            app:backgroundTint="#4CAF50"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="116dp"
-            android:onClick="CheckAgainPopUpClick"
-            android:text="ตรวจสอบอีกครั้ง"
-            app:backgroundTint="#F44336"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="1"
-            android:text="ยกเลิกแบบฟอร์มนี้?"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.166"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="58dp"
-            android:layout_marginRight="58dp"
-            android:layout_weight="1"
-            android:text="ยกเลิกและล้างแบบฟอร์มนี้"
-            android:textColor="#F44336"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/modifyImage"
         android:layout_width="44dp"
         android:layout_height="43dp"
-        android:onClick="viewmaihaet"
-        app:srcCompat="@drawable/intent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="189dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginBottom="401dp"
+        android:onClick="onClickModifyText"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/intent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

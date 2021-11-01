@@ -3,12 +3,30 @@ package com.example.navsho.alluseclass;
 import java.io.Serializable;
 
 public class PatrolVessel implements Serializable {
+    private String vesName;
     private String vesID;
-    private String picPath;
+    private int picPath;
 
-    public PatrolVessel(String vesID, String picture) {
-        this.vesID = vesID;
+    public PatrolVessel(String vesName, int picture,String vesID) {
+        this.vesName = vesName;
         this.picPath = picture;
+        this.vesID = vesID;
+    }
+
+    public String getVesName() {
+        return vesName;
+    }
+
+    public void setVesName(String vesName) {
+        this.vesName = vesName;
+    }
+
+    public int getPicPath() {
+        return picPath;
+    }
+
+    public void setPicPath(int picPath) {
+        this.picPath = picPath;
     }
 
     public String getVesID() {
@@ -19,15 +37,7 @@ public class PatrolVessel implements Serializable {
         this.vesID = vesID;
     }
 
-    public String getPicPath() {
-        return picPath;
-    }
-
-    public void setPicPath(String picPath) {
-        this.picPath = picPath;
-    }
-
-    public String findPicPath(String name){
+    public static String findPicPath(String name){
         String path = " ";
         if(name.equals("ร.ล.สัตหีบ")){
             path = "sattahip";

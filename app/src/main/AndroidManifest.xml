@@ -15,7 +15,8 @@
         android:windowSoftInputMode="adjustPan">
         <activity android:name=".CommanderFormController"
             android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".CommanderController"></activity>
+        <activity android:name=".CommanderController">
+        </activity>
 
         <activity android:name=".EngineerController" >
         </activity>

@@ -2,7 +2,6 @@ package com.example.navsho;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,9 +42,9 @@ public class ChiefFormController extends AppCompatActivity {
         shipOp = (ShipOperation) getIntent().getSerializableExtra("SHIPOP");
         vessel = (PatrolVessel) getIntent().getSerializableExtra("VESSEL");
 
-        lightDecease = findViewById(R.id.lightDecease);
+        lightDecease = findViewById(R.id.lightDecease1);
         rejectPopUpPage = findViewById(R.id.rejectPopUpPage);
-        acceptPopUpPage = findViewById(R.id.acceptPopUpPage);
+        acceptPopUpPage = findViewById(R.id.acceptPopUpPage1);
 
         acceptButton = findViewById(R.id.acceptButton);
         rejectButton = findViewById(R.id.rejectButton);
@@ -54,25 +53,30 @@ public class ChiefFormController extends AppCompatActivity {
 
         setTextViewID();
         changeData();
+        selectNavyName();
         setTextViewFromDatabase();
 
     }
     public void setTextViewFromDatabase(){
+        Log.i("xxx",shipOp.convertDateToDatabase() + " " + shipOp.getVesID());
         try{
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connect = connectionHelper.connectionclass();
             if(connect!=null){
-                String query = "SELECT * from ShipOperation " +
-                               "INNER JOIN Navy ON ShipOperation.NavyID_writer=Navy.NavyID " +
-                               "Where ShipOperation.Form_date = '" + shipOp.convertDateToDatabase() +"' AND ShipOperation.ves_id='" + shipOp.getVesID() + "'";
+                String query = "Select * from ShipOperation s " +
+                        "INNER JOIN Vessel v " +
+                        " ON s.ves_id = v.ves_id " +
+                        "INNER JOIN Navy_Vessel nv " +
+                        " ON v.ves_id = nv.ves_id " +
+                        "INNER JOIN Navy n " +
+                        " ON n.NavyID =  nv.NavyID " +
+                        "Where v.ves_id = '" + navy.getVesID() + "' AND s.Form_date ='" + shipOp.convertDateToDatabase() + "'" ;
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
                     viewDate.setText(shipOp.getDate());
                     viewVes.setText(shipOp.getVesID());
-                    viewEditior.setText(resultSet.getString("First_Last_Name"));
                     viewChief.setText(navy.getName());
-                    viewCommander.setText("จิรัณ ทรัพย์ปรีชา");
                     viewBigEngine.setText(resultSet.getInt("BigMachine") + " ชม.");
                     viewElectricEngine.setText(resultSet.getInt("EletricMachine") + " ชม.");
                     viewUseAirCon.setText(resultSet.getInt("AirConditioner") + " ชม.");
@@ -100,6 +104,37 @@ public class ChiefFormController extends AppCompatActivity {
             e.getErrorCode();
         }
     }
+
+    public void selectNavyName() {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connectionclass();
+            if (connect != null) {
+                String query = "Select * from ShipOperation s " +
+                        "INNER JOIN Vessel v " +
+                        "  ON s.ves_id = v.ves_id " +
+                        "INNER JOIN Navy_Vessel nv " +
+                        "  ON v.ves_id = nv.ves_id " +
+                        "INNER JOIN Navy n " +
+                        "  ON n.NavyID =  nv.NavyID " +
+                        "Where s.Form_date = '" + shipOp.convertDateToDatabase() + "'";
+                Statement statement = connect.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                while(resultSet.next()){
+                    viewVes.setText(resultSet.getString("ves_id"));
+                    if(resultSet.getString("Navy_Role").equals("ทหารช่าง"))
+                        viewEditior.setText(resultSet.getString("First_Last_name"));
+                    else if(resultSet.getString("Navy_Role").equals("ต้นกล"))
+                        viewChief.setText(resultSet.getString("First_Last_name"));
+                    if(resultSet.getString("Navy_Role").equals("ผบ.กตอ."))
+                        viewCommander.setText(resultSet.getString("First_Last_name"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void changeData(){
         viewDate.setText("");
         viewVes.setText("");

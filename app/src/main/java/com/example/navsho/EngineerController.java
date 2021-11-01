@@ -1,11 +1,11 @@
     package com.example.navsho;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.alluseclass.PatrolVessel;
-import com.example.navsho.recycleviewadapter.RecycleAdapter;
+import com.example.navsho.recycleviewadapter.OperatorRecycleAdapter;
+//import com.example.navsho.recycleviewadapter.ShipRecycleAdapter;
 import com.example.navsho.report.ShipOperation;
 
 import java.sql.Connection;
@@ -27,10 +28,8 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
 
-    public class EngineerController extends AppCompatActivity implements RecycleAdapter.onShipListener{
+    public class EngineerController extends AppCompatActivity implements OperatorRecycleAdapter.OnShipListener {
     private ArrayList<ShipOperation> shipOpList;
     private RecyclerView shipOpRecycle;
     private Intent intent = getIntent();
@@ -60,6 +59,8 @@ import java.util.Collections;
         statusText = findViewById(R.id.statusText);
         pictureEngineer = findViewById(R.id.pictureEngineerView);
 
+
+
         shipOpList = new ArrayList<>();
         navy = (Navy) getIntent().getSerializableExtra("NAVY");
         vessel = (PatrolVessel) getIntent().getSerializableExtra("VESSEL");
@@ -73,8 +74,7 @@ import java.util.Collections;
     }
 
     private void setShipImage() {
-        int id = getResources().getIdentifier(vessel.getPicPath(), "drawable", getPackageName());
-        Drawable drawable = getResources().getDrawable(id);
+        Drawable drawable = getResources().getDrawable(vessel.getPicPath());
         pictureEngineer.setImageDrawable(drawable);
     }
 
@@ -92,9 +92,12 @@ import java.util.Collections;
     public void getShipName() {
         try {
             if (connect != null) {
-                String query = "SELECT * from Vessel \n" +
-                        "INNER JOIN Navy ON Vessel.ves_id=Navy.ves_id\n" +
-                        "Where Navy.ves_id= " + "'" + navy.getVesID() + "'";
+                String query = "Select v.ves_name,n.NavyID from Vessel v " +
+                        "INNER JOIN Navy_Vessel nv " +
+                        "ON v.ves_id = nv.ves_id " +
+                        "INNER JOIN Navy n " +
+                        "ON n.NavyID =  nv.NavyID " +
+                        "Where n.NavyID = '" + navy.getNavyID() +"'";
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
@@ -107,11 +110,12 @@ import java.util.Collections;
     }
 
     private void setAdapter() {
-        RecycleAdapter adapter = new RecycleAdapter(shipOpList,this);
+        OperatorRecycleAdapter operationAdapter = new OperatorRecycleAdapter(shipOpList,this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         shipOpRecycle.setLayoutManager(layoutManager);
         shipOpRecycle.setItemAnimator(new DefaultItemAnimator());
-        shipOpRecycle.setAdapter(adapter); 
+        shipOpRecycle.setAdapter(operationAdapter);
+
     }
 
     public void getShipOp(){
@@ -174,6 +178,9 @@ import java.util.Collections;
         Intent intent = new Intent(EngineerController.this,MainActivity.class);
         startActivity(intent);
     }
+
+
+
     @Override
     public void onClickListener(int position) {
         shipOp = shipOpList.get(position);

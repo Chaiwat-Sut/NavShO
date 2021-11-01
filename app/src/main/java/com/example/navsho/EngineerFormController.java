@@ -2,11 +2,11 @@ package com.example.navsho;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +22,7 @@ public class EngineerFormController extends AppCompatActivity {
     private Connection connect;
     private Navy navy;
     private ShipOperation shipOp;
+    private ImageView modifyImage;
     private TextView dateT;
     private TextView vesID;
     private TextView editorName;
@@ -49,6 +50,8 @@ public class EngineerFormController extends AppCompatActivity {
     private EditText giveDiesel;
     private EditText giveWater;
     private EditText feedback;
+    private Button acceptButton1, clearFormButton;
+    private View lightDecease,rejectPopUpPage,acceptPopUpPage;
     private int amountBigMachine,amountElecMachine,amountUseAirCon, amountUseAirCom, amountUseFreez, amountUseShipEng, amountUsePump, amountUsePure, amountUseRudder, amountUseSplitOil, amountUseOfGear ;
     private double amountGetWater, amountGetBensin, amountGetGladinir, amountGetTelus, amountGetDiesel, amountGiveWater, amountGiveBensin, amountGiveGladinir, amountGiveTelus, amountGiveDiesel;
     private String feedbackString;
@@ -65,45 +68,18 @@ public class EngineerFormController extends AppCompatActivity {
         editorName = findViewById(R.id.textViewEditorName);
         chiefName = findViewById(R.id.textViewChiefName);
         commanderName = findViewById(R.id.textViewCommanderName);
+        modifyImage = findViewById(R.id.modifyImage);
+
+        lightDecease = findViewById(R.id.lightDecease1);
+        acceptPopUpPage = findViewById(R.id.acceptPopUpPage1);
+
+        acceptButton1 = findViewById(R.id.acceptButton1);
+        clearFormButton = findViewById(R.id.clearFormButton);
+
         selectNavyName();
         if(shipOp.getStatus().equals("กลับไปแก้ไข")){
-            try {
-                ConnectionHelper connectionHelper = new ConnectionHelper();
-                connect = connectionHelper.connectionclass();
-                if (connect != null) {
-                    String query = "SELECT * from ShipOperation " +
-                                   "Where Form_date ='" +  shipOp.convertDateToDatabase() +"' AND ves_id='" + shipOp.getVesID() +"'";
-                    Statement statement = connect.createStatement();
-                    ResultSet resultSet = statement.executeQuery(query);
-                    setEditTextID();
-                    while(resultSet.next()){
-                        bigMachine.setText(String.valueOf(resultSet.getInt("BigMachine")),TextView.BufferType.EDITABLE);
-                        electricMachine.setText(String.valueOf(resultSet.getInt("EletricMachine")),TextView.BufferType.EDITABLE);
-                        useOfAirCom.setText(String.valueOf(resultSet.getInt("AirCompressor")),TextView.BufferType.EDITABLE);
-                        useOfAirCon.setText(String.valueOf(resultSet.getInt("AirConditioner")),TextView.BufferType.EDITABLE);
-                        useOfFreez.setText(String.valueOf(resultSet.getInt("Freezer")),TextView.BufferType.EDITABLE);
-                        useOfShipEng.setText(String.valueOf(resultSet.getInt("ShipEngine")),TextView.BufferType.EDITABLE);
-                        useOfPump.setText(String.valueOf(resultSet.getInt("Pump")),TextView.BufferType.EDITABLE);
-                        useOfWaterPure.setText(String.valueOf(resultSet.getInt("WaterPurifyer")),TextView.BufferType.EDITABLE);
-                        useOfSplitOil.setText(String.valueOf(resultSet.getInt("SplitOilEngine")),TextView.BufferType.EDITABLE);
-                        useOfGear.setText(String.valueOf(resultSet.getInt("Gear")),TextView.BufferType.EDITABLE);
-                        useOfRudder.setText(String.valueOf(resultSet.getInt("Rudder")),TextView.BufferType.EDITABLE);
-                        getDiesel.setText(String.valueOf(resultSet.getFloat("GetOfDiesel")),TextView.BufferType.EDITABLE);
-                        getBensin.setText(String.valueOf(resultSet.getFloat("GetOfBensin")),TextView.BufferType.EDITABLE);
-                        getGladinir.setText(String.valueOf(resultSet.getFloat("GetOfGladinir")),TextView.BufferType.EDITABLE);
-                        getTeslus.setText(String.valueOf(resultSet.getFloat("GetOfTeslus")),TextView.BufferType.EDITABLE);
-                        getWater.setText(String.valueOf(resultSet.getFloat("GetOfWater")),TextView.BufferType.EDITABLE);
-                        giveDiesel.setText(String.valueOf(resultSet.getFloat("GiveDiesel")),TextView.BufferType.EDITABLE);
-                        giveBensin.setText(String.valueOf(resultSet.getFloat("GiveOfBensin")),TextView.BufferType.EDITABLE);
-                        giveGladinir.setText(String.valueOf(resultSet.getFloat("GiveOfGladinir")),TextView.BufferType.EDITABLE);
-                        giveTeslus.setText(String.valueOf(resultSet.getFloat("GiveOfTeslus")),TextView.BufferType.EDITABLE);
-                        giveWater.setText(String.valueOf(resultSet.getFloat("GiveOfWater")),TextView.BufferType.EDITABLE);
-                        feedback.setText(resultSet.getString("Counsel"));
-                    }
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            modifyImage.setVisibility(View.VISIBLE);
+            readForm();
         }
     }
 
@@ -112,16 +88,24 @@ public class EngineerFormController extends AppCompatActivity {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connect = connectionHelper.connectionclass();
             if (connect != null) {
-                String query = "SELECT Vessel.ves_id,Vessel.ves_id,Navy.First_Last_name,Navy.Navy_Role from Vessel \n" +
-                        "INNER JOIN Navy ON Vessel.ves_id=Navy.ves_id\n" +
-                        "Where Navy.ves_id= " + "'" + navy.getVesID() + "'" + " AND Navy.Navy_Role='ต้นกล'";
+                String query = "Select * from ShipOperation s " +
+                        "INNER JOIN Vessel v " +
+                        "  ON s.ves_id = v.ves_id " +
+                        "INNER JOIN Navy_Vessel nv " +
+                        "  ON v.ves_id = nv.ves_id " +
+                        "INNER JOIN Navy n " +
+                        "  ON n.NavyID =  nv.NavyID " +
+                        "Where s.Form_date = '" + shipOp.convertDateToDatabase() + "'";
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
                     vesID.setText(resultSet.getString("ves_id"));
-                    editorName.setText(navy.getName());
-                    chiefName.setText(resultSet.getString("First_Last_name"));
-                    commanderName.setText("จิรัณ ทรัพย์ปรีชา");
+                    if(resultSet.getString("Navy_Role").equals("ทหารช่าง"))
+                        editorName.setText(resultSet.getString("First_Last_name"));
+                    else if(resultSet.getString("Navy_Role").equals("ต้นกล"))
+                        chiefName.setText(resultSet.getString("First_Last_name"));
+                    if(resultSet.getString("Navy_Role").equals("ผบ.กตอ."))
+                        commanderName.setText(resultSet.getString("First_Last_name"));
                 }
             }
         } catch (SQLException e) {
@@ -178,6 +162,45 @@ public class EngineerFormController extends AppCompatActivity {
         }
     }
 
+    public void readForm() {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connectionclass();
+            if (connect != null) {
+                String query = "SELECT * from ShipOperation " +
+                        "Where Form_date ='" +  shipOp.convertDateToDatabase() +"' AND ves_id='" + shipOp.getVesID() +"'";
+                Statement statement = connect.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                setEditTextID();
+                while(resultSet.next()){
+                    bigMachine.setText(String.valueOf(resultSet.getInt("BigMachine")),TextView.BufferType.EDITABLE);
+                    electricMachine.setText(String.valueOf(resultSet.getInt("EletricMachine")),TextView.BufferType.EDITABLE);
+                    useOfAirCom.setText(String.valueOf(resultSet.getInt("AirCompressor")),TextView.BufferType.EDITABLE);
+                    useOfAirCon.setText(String.valueOf(resultSet.getInt("AirConditioner")),TextView.BufferType.EDITABLE);
+                    useOfFreez.setText(String.valueOf(resultSet.getInt("Freezer")),TextView.BufferType.EDITABLE);
+                    useOfShipEng.setText(String.valueOf(resultSet.getInt("ShipEngine")),TextView.BufferType.EDITABLE);
+                    useOfPump.setText(String.valueOf(resultSet.getInt("Pump")),TextView.BufferType.EDITABLE);
+                    useOfWaterPure.setText(String.valueOf(resultSet.getInt("WaterPurifyer")),TextView.BufferType.EDITABLE);
+                    useOfSplitOil.setText(String.valueOf(resultSet.getInt("SplitOilEngine")),TextView.BufferType.EDITABLE);
+                    useOfGear.setText(String.valueOf(resultSet.getInt("Gear")),TextView.BufferType.EDITABLE);
+                    useOfRudder.setText(String.valueOf(resultSet.getInt("Rudder")),TextView.BufferType.EDITABLE);
+                    getDiesel.setText(String.valueOf(resultSet.getFloat("GetOfDiesel")),TextView.BufferType.EDITABLE);
+                    getBensin.setText(String.valueOf(resultSet.getFloat("GetOfBensin")),TextView.BufferType.EDITABLE);
+                    getGladinir.setText(String.valueOf(resultSet.getFloat("GetOfGladinir")),TextView.BufferType.EDITABLE);
+                    getTeslus.setText(String.valueOf(resultSet.getFloat("GetOfTeslus")),TextView.BufferType.EDITABLE);
+                    getWater.setText(String.valueOf(resultSet.getFloat("GetOfWater")),TextView.BufferType.EDITABLE);
+                    giveDiesel.setText(String.valueOf(resultSet.getFloat("GiveDiesel")),TextView.BufferType.EDITABLE);
+                    giveBensin.setText(String.valueOf(resultSet.getFloat("GiveOfBensin")),TextView.BufferType.EDITABLE);
+                    giveGladinir.setText(String.valueOf(resultSet.getFloat("GiveOfGladinir")),TextView.BufferType.EDITABLE);
+                    giveTeslus.setText(String.valueOf(resultSet.getFloat("GiveOfTeslus")),TextView.BufferType.EDITABLE);
+                    giveWater.setText(String.valueOf(resultSet.getFloat("GiveOfWater")),TextView.BufferType.EDITABLE);
+                    feedback.setText(resultSet.getString("Counsel"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setEditTextID() {
         bigMachine = findViewById(R.id.editTextBigMachine);
@@ -268,4 +291,18 @@ public class EngineerFormController extends AppCompatActivity {
         giveWater.setText("",TextView.BufferType.EDITABLE);
         feedback.setText("",TextView.BufferType.EDITABLE);
     }
+
+    public void onClickModifyText(View view){
+
+    }
+
+    public void acceptClick(View view){
+        lightDecease.setVisibility(View.VISIBLE);
+        acceptPopUpPage.setVisibility(View.VISIBLE);
+
+        acceptButton1.setEnabled(false);
+        clearFormButton.setEnabled(false);
+    }
+    
+
 }

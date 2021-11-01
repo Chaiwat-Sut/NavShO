@@ -1,83 +1,79 @@
 package com.example.navsho;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class CommanderController extends AppCompatActivity {
-    TextView viewDate, viewVes, viewEditior, viewCommander, viewChief, viewBigEngine, viewElectricEngine, viewUseAirCon, viewUseAirCom, viewUseFreezer, viewUseShipEng, viewUsePump, viewUseHelm, viewUseWaterPure, viewUseOilSplit, viewUseGear, viewGetDiesel, viewGetBensin, viewGetGlanir, viewGetTelus, viewGetWater, viewGiveDiesel, viewGiveBensin, viewGiveGlanir, viewGiveTelus, viewGiveWater;
+import com.example.navsho.alluseclass.PatrolVessel;
+import com.example.navsho.recycleviewadapter.OperatorRecycleAdapter;
+import com.example.navsho.recycleviewadapter.ShipRecycleAdapter;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class CommanderController extends AppCompatActivity implements ShipRecycleAdapter.OnClickPatrolListener{
+
+    private Connection connect;
+    private ArrayList<PatrolVessel> vesselList = new ArrayList<>();
+    private RecyclerView recyclerViewShip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commander_controller);
-        setView();
-        changeData();
-    }
-    public void changeData(){
-        viewDate.setText("");
-        viewVes.setText("");
-        viewEditior.setText("");
-        viewCommander.setText("");
-        viewChief.setText("");
-        viewBigEngine.setText("");
-        viewElectricEngine.setText("");
-        viewUseAirCom.setText("");
-        viewUseAirCon.setText("");
-        viewUseFreezer.setText("");
-        viewUseShipEng.setText("");
-        viewUsePump.setText("");
-        viewUseHelm.setText("");
-        viewUseWaterPure.setText("");
-        viewUseGear.setText("");
-        viewUseOilSplit.setText("");
-        viewGetBensin.setText("");
-        viewGetWater.setText("");
-        viewGetDiesel.setText("");
-        viewGetTelus.setText("");
-        viewGetGlanir.setText("");
-        viewGiveBensin.setText("");
-        viewGiveDiesel.setText("");
-        viewGiveGlanir.setText("");
-        viewGiveTelus.setText("");
-        viewGiveWater.setText("");
+        recyclerViewShip = findViewById(R.id.recyclerViewShip);
+        readVesselFormDatabase();
+        setAdapter();
     }
 
-    public void setView(){
-        viewDate = findViewById(R.id.textViewDate);
-        viewVes = findViewById(R.id.textViewVesselId);
-        viewEditior = findViewById(R.id.textViewEditorName);
-        viewCommander = findViewById(R.id.textViewCommanderName);
-        viewChief = findViewById(R.id.textViewChiefName);
-        viewBigEngine = findViewById(R.id.textViewBigEngine);
-        viewElectricEngine = findViewById(R.id.textViewElectricEngine);
-        viewUseAirCom = findViewById(R.id.textViewAirCompressorTime);
-        viewUseAirCon = findViewById(R.id.textViewAirConditionerTime);
-        viewUseFreezer = findViewById(R.id.textViewFreezerTime);
-        viewUseShipEng = findViewById(R.id.textViewShipEngineTime);
-        viewUsePump =  findViewById(R.id.textViewPumpTime5);
-        viewUseHelm = findViewById(R.id.textViewHelmTime);
-        viewUseWaterPure = findViewById(R.id.textViewWaterPurifyerTime);
-        viewUseGear = findViewById(R.id.textViewGearTime);
-        viewUseOilSplit = findViewById(R.id.textViewOilSpilterTime);
-        viewGetBensin = findViewById(R.id.textViewGetBensin);
-        viewGetWater = findViewById(R.id.textViewGetWater);
-        viewGetDiesel = findViewById(R.id.textViewGetDesel);
-        viewGetTelus = findViewById(R.id.textViewGetTeslus);
-        viewGetGlanir = findViewById(R.id.textViewGetGlanir);
-        viewGiveBensin = findViewById(R.id.textViewGiveBensin);
-        viewGiveDiesel = findViewById(R.id.textViewGiveDessel);
-        viewGiveGlanir = findViewById(R.id.textViewGiveGladinir);
-        viewGiveTelus = findViewById(R.id.textViewGiveTeslus);
-        viewGiveWater = findViewById(R.id.textViewGiveWater);
+    public void readVesselFormDatabase(){
+        ConnectionHelper connectionHelper = new ConnectionHelper();
+        connect = connectionHelper.connectionclass();
+        if(connect!=null){
+            try {
+                String query = "SELECT * from Vessel";
+                Statement statement = connect.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+
+                while(resultSet.next()){
+                    String vesName = resultSet.getString("ves_name");
+                    int picPath = getResources().getIdentifier
+                            (PatrolVessel.findPicPath(
+                                    resultSet.getString("ves_name")),"drawable", getPackageName());
+
+                    String vesID = resultSet.getString("ves_id");
+                    Log.i("xxx",vesName + " " + picPath + " " + vesID);
+                    PatrolVessel patrolVessel = new PatrolVessel(vesName,picPath,vesID);
+                    vesselList.add(patrolVessel);
+                }
+            } catch (SQLException e) {
+                e.getErrorCode();
+            }
+        }
     }
 
-    public void rejectClick(View view){
-
+    private void setAdapter() {
+        ShipRecycleAdapter operationAdapter = new ShipRecycleAdapter(vesselList,this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerViewShip.setLayoutManager(layoutManager);
+        recyclerViewShip.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewShip.setAdapter(operationAdapter);
     }
-    public void acceptClick(View view){
+
+
+
+    @Override
+    public void onClickListener(int position) {
 
     }
 }

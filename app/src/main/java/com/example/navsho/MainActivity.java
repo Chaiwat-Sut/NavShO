@@ -3,7 +3,9 @@ package com.example.navsho;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -31,9 +33,11 @@ public class MainActivity extends AppCompatActivity{
 
 
     private Connection connect;
-    private String connectionResult = "";
     private EditText usernameEditText;
     private EditText passwordEditText;
+    private Navy navy;
+    private PatrolVessel vessel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +45,10 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
+
+
 
     }
     public void loginButton(View view){
@@ -55,49 +60,57 @@ public class MainActivity extends AppCompatActivity{
         String rank = "";
         String role = "";
         String vesselName = "";
-        Navy navy;
-        PatrolVessel vessel;
+        String vesselID = "";
         try{
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connect = connectionHelper.connectionclass();
             if(connect != null){
-                String query = "Select Navy.NavyID,Navy.ves_id,Navy.First_Last_name,Navy.Navy_Rank,Navy.Navy_Role,Vessel.ves_name from Vessel" +
-                        " INNER JOIN Navy ON Vessel.ves_id=Navy.ves_id " +
-                        "Where NavyID=" + "'" + inputNavyID + "'";
+                String query = "Select * from Navy " +
+                               "Where navyID ='" + inputNavyID + "'";
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
                     navyID = resultSet.getString("NavyID");
-                    realPassword = resultSet.getString("ves_id");
+                    realPassword = resultSet.getString("pass");
                     name = resultSet.getString("First_Last_name");
                     rank = resultSet.getString("Navy_Rank");
                     role = resultSet.getString("Navy_Role");
+                }
+
+                query = "SELECT Vessel.ves_id,Vessel.ves_name from Vessel " +
+                        "INNER JOIN Navy_Vessel ON Vessel.ves_id = Navy_Vessel.ves_id\n" +
+                        "Where navyID = '" + navyID + "'";
+                resultSet = statement.executeQuery(query);
+                while(resultSet.next()){
+                    vesselID = resultSet.getString("ves_id");
                     vesselName = resultSet.getString("ves_name");
                 }
 
-                vessel = new PatrolVessel(realPassword,vesselName);
-                vessel.setPicPath(vessel.findPicPath(vesselName));
+                if(PatrolVessel.findPicPath(vesselName) != null){
+                    int vesselPicPath = getResources().getIdentifier(PatrolVessel.findPicPath(vesselName), "drawable", getPackageName());
+                    vessel = new PatrolVessel(realPassword,vesselPicPath,vesselID);
+                }
                 navy = new Navy(navyID,realPassword,name,rank,role);
                 Intent intent;
-                if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ทหารช่าง")){
+                if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ทหารช่าง")){
                     intent = new Intent(MainActivity.this,EngineerController.class);
                     intent.putExtra("NAVY",navy);
                     intent.putExtra("VESSEL",vessel);
                     startActivity(intent);
                 }
-                else if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ต้นกล")){
+                else if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ต้นกล")){
                     intent = new Intent(MainActivity.this,ChiefController.class);
                     intent.putExtra("NAVY",navy);
                     intent.putExtra("VESSEL",vessel);
                     startActivity(intent);
                 }
-                else if(inputPassword.equals(realPassword) && !realPassword.equals("") && role.equals("ผบ.กตอ.")){
-                    intent = new Intent(MainActivity.this,ChiefController.class);
+                else if(inputPassword.equals(realPassword) && !inputPassword.isEmpty() && role.equals("ผบ.กตอ.")){
+                    intent = new Intent(MainActivity.this,CommanderController.class);
                     intent.putExtra("NAVY",navy);
-                    intent.putExtra("VESSEL",vessel);
                     startActivity(intent);
                 }
                 else{
+                    Log.i("xxx",navyID + " " + realPassword);
                     Toast.makeText(this,"รหัสบนบัตรหรือรหัสเรือผิด กรุณากรอกใหม่",Toast.LENGTH_LONG).show();
                 }
             }
@@ -105,5 +118,20 @@ public class MainActivity extends AppCompatActivity{
             e.printStackTrace();
             Toast.makeText(this,"" + e.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void hideNavigationBar(){
+        this.getWindow().getDecorView()
+                .setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                );
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        hideNavigationBar();
     }
 }

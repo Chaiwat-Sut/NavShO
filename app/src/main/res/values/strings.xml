@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">NavShO</string>
+
+    <string-array name="ship_name">
+        <item>ร.ล.สัตหีบ</item>
+        <item>ร.ล.คลองใหญ่</item>
+        <item>ร.ล.ตากใบ</item>
+        <item>ร.ล.กันตัง</item>
+        <item>ร.ล.เทพา</item>
+        <item>ร.ล.ท้ายเหมือง</item>
+    </string-array>>
 </resources>

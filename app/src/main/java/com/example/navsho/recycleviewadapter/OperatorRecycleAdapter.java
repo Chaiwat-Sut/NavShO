@@ -13,21 +13,21 @@ import com.example.navsho.report.ShipOperation;
 
 import java.util.ArrayList;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
+public class OperatorRecycleAdapter extends RecyclerView.Adapter<OperatorRecycleAdapter.ShipViewHolder>{
     private ArrayList<ShipOperation> shipOp;
-    private onShipListener mOnShipListner;
+    private OnShipListener mOnShipListner;
 
-    public RecycleAdapter(ArrayList<ShipOperation> shipOp, onShipListener onShipListener){
+    public OperatorRecycleAdapter(ArrayList<ShipOperation> shipOp, OnShipListener onShipListener){
         this.shipOp = shipOp;
         this.mOnShipListner = onShipListener;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ShipViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView dateText;
         private TextView statusText;
-        onShipListener onShipListener;
+        OnShipListener onShipListener;
 
-        public MyViewHolder(View view , onShipListener onShipListener){
+        public ShipViewHolder(View view , OnShipListener onShipListener){
             super(view);
             dateText = view.findViewById(R.id.dateText);
             statusText = view.findViewById(R.id.statusText);
@@ -43,13 +43,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
     @NonNull
     @Override
-    public RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ShipViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_view_layout,parent,false);
-        return new MyViewHolder(itemView,mOnShipListner);
+        return new ShipViewHolder(itemView,mOnShipListner);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ShipViewHolder holder, int position) {
         String date = shipOp.get(position).getDate();
         String status = shipOp.get(position).getStatus();
         holder.dateText.setText(date);
@@ -61,7 +61,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         return shipOp.size();
     }
 
-    public interface onShipListener{
+    public interface OnShipListener {
         void onClickListener(int position);
     }
 }

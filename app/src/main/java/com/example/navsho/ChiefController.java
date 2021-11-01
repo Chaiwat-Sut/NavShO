@@ -8,14 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.alluseclass.PatrolVessel;
-import com.example.navsho.recycleviewadapter.RecycleAdapter;
+import com.example.navsho.recycleviewadapter.OperatorRecycleAdapter;
 import com.example.navsho.report.ShipOperation;
 
 import java.sql.Connection;
@@ -26,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ChiefController extends AppCompatActivity implements RecycleAdapter.onShipListener{
+public class ChiefController extends AppCompatActivity implements OperatorRecycleAdapter.OnShipListener {
     private ArrayList<ShipOperation> shipOpList;
     private RecyclerView shipOpRecycle;
     private Intent intent = getIntent();
@@ -67,17 +66,19 @@ public class ChiefController extends AppCompatActivity implements RecycleAdapter
     }
 
     private void setShipImage() {
-        int id = getResources().getIdentifier(vessel.getPicPath(), "drawable", getPackageName());
-        Drawable drawable = getResources().getDrawable(id);
+        Drawable drawable = getResources().getDrawable(vessel.getPicPath());
         pictureEngineer.setImageDrawable(drawable);
     }
 
     public void getShipName() {
         try {
             if (connect != null) {
-                String query = "SELECT * from Vessel \n" +
-                        "INNER JOIN Navy ON Vessel.ves_id=Navy.ves_id\n" +
-                        "Where Navy.ves_id= " + "'" + navy.getVesID() + "'";
+                String query = "Select v.ves_name,n.NavyID from Vessel v " +
+                        "INNER JOIN Navy_Vessel nv " +
+                        "ON v.ves_id = nv.ves_id " +
+                        "INNER JOIN Navy n " +
+                        "ON n.NavyID =  nv.NavyID " +
+                        "Where n.NavyID = '" + navy.getNavyID() +"'";
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
@@ -115,7 +116,7 @@ public class ChiefController extends AppCompatActivity implements RecycleAdapter
     }
 
     private void setAdapter() {
-        RecycleAdapter adapter = new RecycleAdapter(shipOpList,this);
+        OperatorRecycleAdapter adapter = new OperatorRecycleAdapter(shipOpList,this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         shipOpRecycle.setLayoutManager(layoutManager);
         shipOpRecycle.setItemAnimator(new DefaultItemAnimator());
