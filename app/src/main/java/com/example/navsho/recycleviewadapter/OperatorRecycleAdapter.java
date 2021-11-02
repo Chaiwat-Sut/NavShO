@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.navsho.R;
-import com.example.navsho.report.ShipOperation;
+import com.example.navsho.alluseclass.ShipOperation;
 
 import java.util.ArrayList;
 

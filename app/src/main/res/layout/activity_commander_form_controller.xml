@@ -45,14 +45,11 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
-                android:id="@+id/rejectButton2"
+                android:id="@+id/printButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:onClick="printClick"
                 android:text="พิมพ์แบบฟอร์ม"
-                android:visibility="gone"
                 app:backgroundTint="#D1BF21"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +57,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/acceptButton2"
+                android:id="@+id/backButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:onClick="backToClick"
                 android:text="กลับ"
                 android:visibility="gone"
                 app:backgroundTint="#F44336"
@@ -120,7 +114,12 @@
                         android:id="@+id/textViewDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+<<<<<<< HEAD
                         android:layout_marginLeft="30dp"
+=======
+                        android:layout_marginLeft="50dp"
+                        android:layout_weight="1"
+>>>>>>> 4353f28fbecfe0e8e7bdafa73d89d86b4322ad0f
                         android:text="(วันที่)"
                         android:textColor="#050533"
                         android:textSize="20sp" />
@@ -199,7 +198,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
+<<<<<<< HEAD
                         android:text="(ชื่อต้นกล)"
+=======
+                        android:text="(ชื่อของต้นกล)"
+>>>>>>> 4353f28fbecfe0e8e7bdafa73d89d86b4322ad0f
                         android:textColor="#050533"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -225,7 +228,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
+<<<<<<< HEAD
                         android:text="(ชื่อผบ.กตอ.)"
+=======
+                        android:text="(ชื่อของผบ.กตอ.)"
+>>>>>>> 4353f28fbecfe0e8e7bdafa73d89d86b4322ad0f
                         android:textColor="#050533"
                         android:textSize="20sp" />
                 </LinearLayout>

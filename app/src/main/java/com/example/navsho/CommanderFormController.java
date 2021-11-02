@@ -2,8 +2,13 @@ package com.example.navsho;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +16,33 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.navsho.report.ShipOperation;
+import com.example.navsho.alluseclass.ShipOperation;
+import com.example.navsho.pdfcontroller.Common;
+import com.example.navsho.pdfcontroller.PdfDocumentAdapter;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.itextpdf.text.pdf.draw.VerticalPositionMark;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +56,7 @@ public class CommanderFormController extends AppCompatActivity {
     private ShipOperation shipOp;
     private View lightDecease1,acceptPopUpPage,rejectPopUpPage;
     private Button acceptButton,rejectButton;
+    private Button backButton,printButton;
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
@@ -37,6 +68,8 @@ public class CommanderFormController extends AppCompatActivity {
 
         acceptButton = findViewById(R.id.acceptButton);
         rejectButton = findViewById(R.id.rejectButton);
+        printButton = findViewById(R.id.printButton);
+        backButton = findViewById(R.id.backButton);
 
         lightDecease1 = findViewById(R.id.lightDecease1);
         acceptPopUpPage = findViewById(R.id.acceptPopUpPage);
@@ -53,7 +86,141 @@ public class CommanderFormController extends AppCompatActivity {
             rejectButton.setVisibility(View.GONE);
         }
 
+        Dexter.withActivity(this)
+                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        printButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                createPDFFile(Common.getAppPath(CommanderFormController.this)+"test_pdf.pdf");
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                    }
+                })
+                .check();
     }
+
+    private void createPDFFile(String path) {
+        if(new File(path).exists()){
+            new File(path).delete();
+        }
+        try{
+            Document document = new Document();
+            //Save
+            PdfWriter.getInstance(document,new FileOutputStream(path));
+            //Open to write
+            document.open();
+
+            // Setting
+            document.setPageSize(PageSize.A4);
+            document.addCreationDate();
+            document.addAuthor("จิรัณ ทรัพย์ปรีชา");
+            document.addCreator("จิรัณ ทรัพย์ปรีชา");
+
+            //Font Setting
+            BaseColor colorAccent = new BaseColor(0,153,20,255);
+            float fontSize = 20.0f;
+            float valueFontSize = 26.0f;
+
+            //Custom font
+            BaseFont fontName = BaseFont.createFont("assets/fonts/FC Subject Condensed.ttf","UTF-8",BaseFont.EMBEDDED);
+
+
+            //Create Title of Document
+            Font titleFont = new Font(fontName,36.0f,Font.NORMAL,BaseColor.BLACK);
+            addNewItem(document,"Report of Usage And Counsel", Element.ALIGN_CENTER,titleFont);
+
+            //Add more
+            Font orderNumberFont = new Font(fontName,fontSize,Font.NORMAL,colorAccent);
+            addNewItem(document,"Order No: ",Element.ALIGN_LEFT,orderNumberFont);
+
+            Font orderNumberValuesFont = new Font(fontName,valueFontSize,Font.NORMAL,BaseColor.BLACK);
+            addNewItem(document,"#717171 ",Element.ALIGN_LEFT,orderNumberValuesFont);
+
+            addLineSeperator(document);
+
+            addNewItem(document,"Order Date",Element.ALIGN_LEFT,orderNumberFont);
+            addNewItem(document,"3/8/2021",Element.ALIGN_LEFT,orderNumberValuesFont);
+
+            addLineSeperator(document);
+
+            addNewItem(document,"Account Name: ",Element.ALIGN_LEFT,orderNumberFont);
+            addNewItem(document,"Eddy Lee",Element.ALIGN_LEFT,orderNumberValuesFont);
+
+            //Add Product order detail
+            addLineSpace(document);
+            addNewItem(document,"Product Detail",Element.ALIGN_CENTER,titleFont);
+            addLineSpace(document);
+
+            //Item 1
+            addNewItemWithLeftAndRight(document,"Pizza 25","(0.0%)",titleFont,orderNumberFont);
+
+            document.close();
+
+            Toast.makeText(this,"พิมพ์เรียบร้อย",Toast.LENGTH_LONG).show();
+
+            printPDF();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void printPDF() {
+        PrintManager printManager = (PrintManager)getSystemService(Context.PRINT_SERVICE);
+        try{
+            PrintDocumentAdapter printDocumentAdapter = new PdfDocumentAdapter(CommanderFormController.this,Common.getAppPath(CommanderFormController.this)+"test_pdf.pdf");
+            printManager.print("Document",printDocumentAdapter,new PrintAttributes.Builder().build());
+        }catch (Exception ex){
+            Log.e("Print Error: ","" + ex.getMessage());
+        }
+    }
+
+    private void addNewItemWithLeftAndRight(Document document, String textLeft, String textRight, Font textLeftFont,Font textRightFont) throws DocumentException {
+        Chunk chunkTextLeft = new Chunk(textLeft,textLeftFont);
+        Chunk chunkTextRight = new Chunk(textRight,textRightFont);
+        Paragraph p = new Paragraph(chunkTextLeft);
+        p.add(new Chunk(new VerticalPositionMark()));
+        p.add(chunkTextRight);
+        document.add(p);
+    }
+
+    private void addLineSeperator(Document document) throws DocumentException {
+        LineSeparator lineSeparator = new LineSeparator();
+        lineSeparator.setLineColor(new BaseColor(0,0,0,68));
+        addLineSpace(document);
+        document.add(new Chunk(lineSeparator));
+        addLineSpace(document);
+    }
+
+    private void addLineSpace(Document document) throws DocumentException {
+        document.add(new Paragraph(""));
+    }
+
+    private void addNewItem(Document document, String text, int align, Font font) throws DocumentException {
+        Chunk chuck = new Chunk(text,font);
+        Paragraph paragraph = new Paragraph(chuck);
+        paragraph.setAlignment(align);
+        document.add(paragraph);
+
+    }
+
     public void changeData(){
         viewDate.setText("");
         viewVes.setText("");
@@ -158,6 +325,7 @@ public class CommanderFormController extends AppCompatActivity {
                 Statement statement = connect.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while(resultSet.next()){
+                    viewDate.setText(shipOp.getDate());
                     viewBigEngine.setText(resultSet.getInt("BigMachine") + " ชม.");
                     viewElectricEngine.setText(resultSet.getInt("EletricMachine") + " ชม.");
                     viewUseAirCon.setText(resultSet.getInt("AirConditioner") + " ชม.");

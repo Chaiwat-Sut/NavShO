@@ -1,4 +1,4 @@
-package com.example.navsho.report;
+package com.example.navsho.alluseclass;
 
 import java.io.Serializable;
 import java.util.ArrayList;

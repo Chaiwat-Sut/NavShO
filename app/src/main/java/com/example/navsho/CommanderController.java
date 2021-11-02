@@ -1,6 +1,5 @@
 package com.example.navsho;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,8 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,15 +15,12 @@ import android.widget.Toast;
 import com.example.navsho.alluseclass.PatrolVessel;
 import com.example.navsho.recycleviewadapter.OperatorRecycleAdapter;
 import com.example.navsho.recycleviewadapter.ShipRecycleAdapter;
-import com.example.navsho.report.ShipOperation;
-
-import org.w3c.dom.Text;
+import com.example.navsho.alluseclass.ShipOperation;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CommanderController extends AppCompatActivity implements OperatorRecycleAdapter.OnShipListener,ShipRecycleAdapter.OnShipListener{

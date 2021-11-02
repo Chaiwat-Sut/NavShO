@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.alluseclass.PatrolVessel;
-import com.example.navsho.report.ShipOperation;
+import com.example.navsho.alluseclass.ShipOperation;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

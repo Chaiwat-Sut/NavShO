@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.navsho.alluseclass.Navy;
 import com.example.navsho.alluseclass.PatrolVessel;
-import com.example.navsho.report.ShipOperation;
+import com.example.navsho.alluseclass.ShipOperation;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -430,5 +430,5 @@ public class EngineerFormController extends AppCompatActivity {
 
     public double waterCalculator(){
         return amountGetWater - (amountGiveWater + 40);
-    }
+    } //Amongus
 }
