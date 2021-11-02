@@ -275,21 +275,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textViewBigEngine"
-                    android:layout_width="85dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginEnd="150dp"
-                    android:layout_marginRight="150dp"
-                    android:layout_weight="1"
+                    android:layout_marginStart="175dp"
+                    android:layout_marginLeft="175dp"
                     android:gravity="center_horizontal"
-                    android:text="(ชม)"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textViewBigEngine4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
                     android:textAlignment="center"
                     android:textColor="#050533"
                     android:textSize="24sp" />
@@ -345,17 +353,35 @@
                     android:id="@+id/textViewElectricEngine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginEnd="150dp"
-                    android:layout_marginRight="150dp"
-                    android:layout_weight="1"
+                    android:layout_marginStart="175dp"
+                    android:layout_marginLeft="175dp"
                     android:gravity="center_horizontal"
-                    android:text="(ชม)"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textViewBigEngine6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
                     android:textAlignment="center"
                     android:textColor="#050533"
                     android:textSize="24sp" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView124"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="------------------------------------------------------------------------------------------------------------"
+                android:textColor="#FFFFFF"
+                android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textView56"
@@ -420,23 +446,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องปรับอากาศ"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewAirConditionerTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView106"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp"
+                    android:gravity="center_horizontal" />
 
             </LinearLayout>
 
@@ -447,23 +486,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner2"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องอัดลม"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewAirCompressorTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView108"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -474,23 +526,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner3"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องทำความเย็น"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewFreezerTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView110"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -501,23 +566,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner4"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องเรือยนต์"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewShipEngineTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView112"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -528,23 +606,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner5"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องสูบน้ำเคลื่อนที่"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/textViewPumpTime5"
+                    android:id="@+id/textViewPumpTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView114"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -555,23 +646,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner6"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องหางเสือ"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewHelmTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView116"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -582,23 +686,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner7"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องกลั่นน้ำ"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewWaterPurifyerTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView118"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -609,23 +726,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner8"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เครื่องแยกน้ำมันดีเซล"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewOilSpilterTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView120"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -636,23 +766,36 @@
 
                 <TextView
                     android:id="@+id/textViewAirConditioner9"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="เกียร์"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGearTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ชม."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView122"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ชม."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -732,23 +875,36 @@
 
                 <TextView
                     android:id="@+id/textView66"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="น้ำมัน ดีเซล (กล.)"
+                    android:text="น้ำมัน ดีเซล"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGetDesel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) กล."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView125"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" กล."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -759,23 +915,36 @@
 
                 <TextView
                     android:id="@+id/textView88"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="น้ำมัน เบนซิน 95 (กล.)"
+                    android:text="น้ำมัน เบนซิน 95 "
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGetBensin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) กล."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView126"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" กล."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -786,23 +955,36 @@
 
                 <TextView
                     android:id="@+id/textView89"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="เชลล์ การ์ดิเนีย เกรด 40"
+                    android:text="เชลล์ การ์ดิเนีย (40)"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGetGlanir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ลิตร"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView127"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ลิตร"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -813,23 +995,36 @@
 
                 <TextView
                     android:id="@+id/textView90"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="เชลล์ เทลลัส เกรด 68"
+                    android:text="เชลล์ เทลลัส (68)"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGetTeslus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ลิตร"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView128"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ลิตร"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -841,23 +1036,36 @@
 
                 <TextView
                     android:id="@+id/textView91"
-                    android:layout_width="250dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="น้ำจืด"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGetWater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ตัน"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView129"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" ตัน "
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -937,25 +1145,37 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView92"
-                    android:layout_width="250dp"
+                    android:id="@+id/textView130"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="น้ำมัน ดีเซล (กล.)"
+                    android:text="น้ำมัน ดีเซล"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/textViewGiveDessel"
+                    android:id="@+id/textViewGiveDesel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) กล."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/textView131"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" กล."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -964,52 +1184,37 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView93"
-                    android:layout_width="250dp"
+                    android:id="@+id/textView132"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="น้ำมัน เบนซิน 95 (กล.)"
+                    android:text="น้ำมัน เบนซิน 95 "
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGiveBensin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) กล."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/textView94"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_weight="1"
-                    android:text="เชลล์ การ์ดิเนีย เกรด 40"
-                    android:textColor="#050533"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/textViewGiveGladinir"
+                    android:id="@+id/textView133"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ลิตร."
+                    android:gravity="center_horizontal"
+                    android:text=" กล."
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
-
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -1018,25 +1223,76 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView95"
-                    android:layout_width="250dp"
+                    android:id="@+id/textView134"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:text="เชลล์ เทลลัส เกรด 68"
+                    android:text="เชลล์ การ์ดิเนีย (40)"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewGiveGlanir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView135"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ลิตร"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView136"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:text="เชลล์ เทลลัส (68)"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGiveTeslus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ลิตร."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/textView137"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ลิตร"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -1046,25 +1302,37 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView96"
-                    android:layout_width="250dp"
+                    android:id="@+id/textView138"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:text="น้ำจืด"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGiveWater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1) ตัน."
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/textView139"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" ตัน "
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <TextView
@@ -1138,43 +1406,15 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textViewBensin"
-                    android:layout_width="111dp"
+                    android:id="@+id/textView140"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="น้ำมันเบนซิล"
-                    android:textAlignment="center"
+                    android:text="น้ำมัน ดีเซล"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/textViewBensinRemain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="(1) กล."
-                    android:textAlignment="center"
-                    android:textColor="#050533"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textViewDiesel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="น้ำมันดีเซล"
-                    android:textAlignment="center"
-                    android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewDieselRemain"
@@ -1182,10 +1422,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="(1) กล."
+                    android:text="0"
                     android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView141"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" กล."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -1194,26 +1445,76 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textViewGladinier"
-                    android:layout_width="159dp"
+                    android:id="@+id/textViewBensinRemain"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:text="น้ำมัน เบนซิน 95 "
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewGiveBensin2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="เชลล์ การ์ดิเนีย (40)"
+                    android:text="0"
                     android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView143"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" กล."
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView144"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:text="เชลล์ การ์ดิเนีย (40)"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewGladinerRemain"
-                    android:layout_width="122dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="(1) ลิตร."
+                    android:text="0"
                     android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView145"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ลิตร"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -1222,26 +1523,37 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textViewTeslus"
-                    android:layout_width="159dp"
+                    android:id="@+id/textView146"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
                     android:text="เชลล์ เทลลัส (68)"
-                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewTeslusRemain"
-                    android:layout_width="122dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="(1) ลิตร."
+                    android:text="0"
                     android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView147"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="ลิตร"
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -1250,26 +1562,37 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textViewWater"
-                    android:layout_width="159dp"
+                    android:id="@+id/textView148"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
                     android:text="น้ำจืด"
-                    android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textViewWaterRemain"
-                    android:layout_width="122dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="(1) ตัน."
+                    android:text="0"
                     android:textAlignment="center"
                     android:textColor="#050533"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView149"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text=" ตัน "
+                    android:textAlignment="center"
+                    android:textColor="#050533"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <TextView
